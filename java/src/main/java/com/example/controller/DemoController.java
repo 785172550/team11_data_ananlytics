@@ -18,6 +18,7 @@ public class DemoController {
 
     @RequestMapping("/test")
     public Object test() {
+
 //        return new Result.Builder<String>().setMsg("ok").setContent("hello world").build();
         Map<String, String> res = new HashMap();
         res.put("test key", "test content");
