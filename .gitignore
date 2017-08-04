@@ -1,6 +1,6 @@
 .idea/
 .mvn/
-target/
+java/target/
 data_ananlytics.iml
 java/.idea/
 .idea/workspace.xml
