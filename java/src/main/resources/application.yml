@@ -1,0 +1,6 @@
+#yml 文件好用很多
+# dev 开发环境
+
+spring:
+  profiles:
+    active: uat
