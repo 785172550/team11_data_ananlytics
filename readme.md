@@ -17,4 +17,6 @@ Message传递---》 数据库 ---》 股票数据分析算法 --》 结果保存
 
 ## mysql大量数据处理
 
-https://segmentfault.com/a/1190000006158186
+单表优化策略 https://segmentfault.com/a/1190000006158186
+
+多表拆分情况 https://www.zhihu.com/question/19750198
