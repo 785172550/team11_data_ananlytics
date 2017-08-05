@@ -22,3 +22,6 @@ Message传递---》 数据库 ---》 股票数据分析算法 --》 结果保存
 多表拆分情况 https://www.zhihu.com/question/19750198
 
 jps联合主键 http://blog.sina.com.cn/s/blog_4b5bc01101010uwt.html
+
+## echart
+http://echarts.baidu.com/demo.html#candlestick-brush
