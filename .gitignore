@@ -1,7 +1,9 @@
 .idea/
 .mvn/
-java/target/
+java/target/*
 data_ananlytics.iml
 java/.idea/
 .idea/workspace.xml
 java/.idea/workspace.xml
+java/target/classes/application-uat.yml
+java/target/classes/application-uat.yml

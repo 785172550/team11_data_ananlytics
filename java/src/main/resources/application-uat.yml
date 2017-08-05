@@ -7,7 +7,7 @@ spring:
   devtools:
     restart:
       enabled: true
-      exclude: resources/**
+      additional-exclude: /resources/**,templates/**
   thymeleaf:
     cache: false
 
