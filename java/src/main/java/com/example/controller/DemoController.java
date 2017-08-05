@@ -23,8 +23,9 @@ public class DemoController {
     public Object test() {
 
 //        return new Result.Builder<String>().setMsg("ok").setContent("hello world").build();
+        String tes;
         Map<String, String> res = new HashMap();
-        res.put("test key", "test content");
+        res.put("test key", "test content ");
         return res;
     }
 
