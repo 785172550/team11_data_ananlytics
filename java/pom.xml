@@ -41,16 +41,16 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency> <!--web 依赖-->
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>   <!--JPA 接口-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+        <!--</dependency>   &lt;!&ndash;JPA 接口&ndash;&gt;-->
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>  <!--mysql 数据库-->
+        <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<scope>runtime</scope>-->
+        <!--</dependency>  &lt;!&ndash;mysql 数据库&ndash;&gt;-->
 
         <dependency>
             <groupId>junit</groupId>
