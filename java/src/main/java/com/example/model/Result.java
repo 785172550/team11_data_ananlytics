@@ -1,17 +1,17 @@
 package com.example.model;
 
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
+
 /**
  * Created by Kenneth on 2017/8/4.
- *
  */
 
 
 public class Result<T> {
 
     private int status;
-
     private String msg;
-
     private T content;
 
     public static class Builder<T> {
@@ -32,13 +32,13 @@ public class Result<T> {
             return this;
         }
 
-        public Builder setContent(T content){
+        public Builder setContent(T content) {
             this.content = content;
             return this;
         }
 
-        public Result build(){
-            return new Result<T>(status,msg,content);
+        public Result build() {
+            return new Result<T>(status, msg, content);
         }
     }
 
