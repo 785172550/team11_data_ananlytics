@@ -10,16 +10,11 @@ spring:
       additional-exclude: /resources/**,templates/**
   thymeleaf:
     cache: false
-
-
-
-#spring:
 #  datasource:
 #    driver-class-name: com.mysql.jdbc.Driver
 #    url: jdbc:mysql://127.0.0.1:3306/test
 #    username: wh
 #    password: wh321
-#
 #  jpa:
 #    hibernate:            #每次都会创建表
 #      ddl-auto: update
