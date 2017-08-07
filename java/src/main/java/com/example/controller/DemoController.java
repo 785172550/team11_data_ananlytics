@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.model.Post;
 import com.example.model.Result;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +22,7 @@ public class DemoController {
     @ResponseBody
     @RequestMapping("/test")
     public Object test() {
-
-//        return new Result.Builder<String>().setMsg("ok").setContent("hello world").build();
-        String tes;
-        Map<String, String> res = new HashMap();
-        res.put("test key", "test content");
-        return res;
+        return new Result.Builder<String>().setMsg("100").setContent("dsafs").build();
     }
 
     @RequestMapping("/index")
