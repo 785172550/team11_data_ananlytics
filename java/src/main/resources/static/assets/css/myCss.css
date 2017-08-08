@@ -1,0 +1,76 @@
+.K-line1, .K-line2, .K-line3, .K-line4, .K-line5
+{
+	color: red;
+	font: 4px/100% Arial, Helvetica, sans-serif;
+	background: #eee;
+	border: none;
+}
+.K-line1:hover, .K-line2:hover, .K-line3:hover, .K-line4:hover, .K-line5:hover
+/*鼠标移上去变色（不点击）*/
+{
+	color: green;
+	border-color: #000;
+	background: #fff;
+	border: none;
+}
+
+.start
+{
+	cursor: pointer;
+}
+
+.end
+{
+	cursor: pointer;
+	color: #fff;
+	background: #fff;
+	border: none;
+}
+
+#header form {
+	position: fixed;
+	right: 3em;
+	top: 6em;
+	width: 300px;
+    margin: 0 auto;
+	z-index: 10000;
+}
+.search {padding: 23px 0}
+.d6 input {
+  height: 100%;
+  width: 0;
+  padding: 0 42px 0 15px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  outline: none;
+  background: transparent;
+  transition: .4s cubic-bezier(0, 0.8, 0, 1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+.d6 input:hover {
+	cursor: pointer;
+}
+.d6 input:focus {
+  width: 300px;
+  z-index: 1;
+  border-bottom: 2px solid #F9F0DA;
+}
+.d6 button {
+  background: #eee;
+  border: none;
+  height: 42px;
+  width: 42px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.d6 button:before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: blue;
+}

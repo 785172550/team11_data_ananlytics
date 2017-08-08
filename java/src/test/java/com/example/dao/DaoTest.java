@@ -2,6 +2,7 @@ package com.example.dao;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by Kenneth on 2017/8/7.
@@ -10,7 +11,8 @@ import org.junit.Test;
 
 public class DaoTest {
 
-//    DemoRepository
+    @Autowired
+    DemoRepository repository;
 
     @Before
     public void setUp() {
@@ -18,7 +20,7 @@ public class DaoTest {
     }
 
     @Test
-    public void getTableMsg(){
-//        DemoRepository.get.....
+    public void getStockName(){
+        repository.findOne(1L);
     }
 }

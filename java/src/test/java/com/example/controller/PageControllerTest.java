@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import com.example.DataAnanlyticsApplication;
-import com.example.model.Stock;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -19,20 +17,21 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Created by Kenneth on 2017/8/7.
+ * Created by Kenneth on 2017/8/8.
+ *
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = DataAnanlyticsApplication.class)
 @WebAppConfiguration
-public class ControllerTest {
+public class PageControllerTest {
 
-    Logger log = LoggerFactory.getLogger(ControllerTest.class);
+    Logger log = LoggerFactory.getLogger(PageControllerTest.class);
 
     private MockMvc mvc;
 
     @Autowired
-    private StockController controller;
+    private PageController controller;
 
     @Before
     public void setUp() {
@@ -40,30 +39,18 @@ public class ControllerTest {
     }
 
     @Test
-    public void getStock() throws Exception {
-//                mvc.perform(MockMvcRequestBuilders.post("/post")
-//                .param("title","test")
-//                .param("content","test")
-//                .accept(MediaType.APPLICATION_JSON))
-//                .andReturn();
-        mvc.perform(MockMvcRequestBuilders.get("/stock/apple")
-                .accept(MediaType.APPLICATION_JSON))
+    public void getPageIndex() throws Exception {
+        mvc.perform((MockMvcRequestBuilders.get("/index")))
                 .andExpect(status().isOk());
     }
-
     @Test
-    public void getStockTop10() throws Exception {
-
-        mvc.perform(MockMvcRequestBuilders.get("/stock_10")
-                .accept(MediaType.APPLICATION_JSON))
+    public void getPageGeneric() throws Exception {
+        mvc.perform((MockMvcRequestBuilders.get("/index")))
                 .andExpect(status().isOk());
     }
-
     @Test
-    public void getStockSpecial() throws Exception {
-
-        mvc.perform(MockMvcRequestBuilders.get("/stock_special")
-                .accept(MediaType.APPLICATION_JSON))
+    public void getPageTop10() throws Exception {
+        mvc.perform((MockMvcRequestBuilders.get("/index")))
                 .andExpect(status().isOk());
     }
 }
