@@ -17,7 +17,7 @@
                     that = $(this);
                 timer = setTimeout(function(){
                     that.addClass('cur').siblings().removeClass('cur');
-                    $this.find('div.list').animate({marginLeft:-1000*index},'slow');
+                    $this.find('div.list').animate({marginLeft:-1186*index},'slow');
                 },300);
             }).mouseout(function(){
                 clearTimeout( timer );

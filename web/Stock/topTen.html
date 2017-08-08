@@ -1,13 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Generic - Phantom by HTML5 UP</title>
+		<title>Top10 List</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="keywords" content="top10" />
 		<meta name="description" content="top10 list" />
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
+		<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 		<!--[if lte IE 8]><script src="./assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link href="./assets/css/style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="./assets/css/main.css" type="text/css"/>
@@ -15,13 +14,11 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="./assets/css/ie8.css" /><![endif]-->
 		<!--js引入-->
 		<script type="text/javascript" src="./assets/js/jquery.min.js"></script>
-		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap-tab.js"></script>
-		<script type="text/javascript" src="./assets/js/tab.js"></script>
+		<script type="text/javascript" src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 		<script src="./assets/js/skel.min.js"></script>
-		<script src="./assets/js/util.js"></script>
+		<script src="./assets/js/util.js"></script><!-- 三个js文件共同显示菜单栏的动画 -->
+		<script src="./assets/js/main.js"></script>
 		<!--[if lte IE 8]><script src="./assets/js/ie/respond.min.js"></script><![endif]-->
-		<script src="./assets/js/main.js"></script>	
 	</head>
 	
 	<body>
@@ -70,7 +67,7 @@
 						</h1>
 						<div class="jyTable">
 							<div class="clearfix">
-								<ul class="title title1 left">
+								<ul class="title title1 left nav nav-tabs">
 									<li class='cur'><a href="#zong" data-toggle="tab">long</a></li>
 									<li><a href="#zong" data-toggle="tab">short</a></li>
 									<li><a href="#zong" data-toggle="tab">ETF</a></li>
@@ -81,7 +78,7 @@
 									<li>ETF成交量：189.2</li>
 								</ul>
 							</div>
-							<div class='zong'>
+							<div  id = "zong" class='zong tab-pane fade in active' >
 								<div class="list list1">
 									<div class="tabCon">
 										<ul>
