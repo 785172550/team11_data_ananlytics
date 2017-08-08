@@ -10,6 +10,7 @@ spring:
       additional-exclude: /resources/**,templates/**
   thymeleaf:
     cache: false
+    mode: LEGACYHTML5
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/test

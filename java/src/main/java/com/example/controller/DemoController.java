@@ -15,12 +15,13 @@ import java.util.Map;
  *
  */
 
-@RequestMapping("/demo")
+
+@RequestMapping("/a")
 @Controller
 public class DemoController {
 
     @ResponseBody
-    @RequestMapping("/test")
+    @RequestMapping("/demo/test")
     public Object test() {
         return new Result.Builder<String>().setMsg("100").setContent("dsafs").build();
     }
@@ -29,4 +30,5 @@ public class DemoController {
     public String getIndex(){
         return "index";
     }
+
 }

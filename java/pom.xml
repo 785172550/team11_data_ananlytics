@@ -79,6 +79,14 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- 让thymeleaf 用html5 标准-->
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

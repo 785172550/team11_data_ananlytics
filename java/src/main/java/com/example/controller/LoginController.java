@@ -22,9 +22,4 @@ public class LoginController {
         return new Result.Builder<Object>().setStatus(200).
                 setContent(userName + ":" + passwd).build();
     }
-
-    @RequestMapping("/test")
-    public String test(){
-        return "test";
-    }
 }
