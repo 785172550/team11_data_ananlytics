@@ -3033,6 +3033,7 @@
 			padding: 2.75em;
 			opacity: 0;
 			overflow-y: auto;
+			background-color:black;
 		}
 
 			#menu > .inner > ul {

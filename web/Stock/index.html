@@ -65,11 +65,11 @@
 								<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
 							</header>
 							<section class="tiles">
-								<article class="style1">
+								<article id = "stock1" class="style1">
 									<span class="image">
 										<img src="images/pic01.jpg" alt="" />
 									</span>
-									<a href="generic.html">
+									<a href="generic.html?stock=apple">
 										<h2>Magna</h2>
 										<div class="content">
 											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
@@ -208,6 +208,23 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			    <script type="text/javascript">
+
+     $(document).ready(function () {
+        $("#stock1").click(function () {
+            console.log("111")
+            $.post("/login", {
+                username:"name",
+                passwd:"passwd"
+            }, function (data,status) {
+                $("#text").text(
+                JSON.stringify(data) + "\n"
+                + JSON.stringify(status))
+            });
+        });      
+     });
+
+    </script>
 
 	</body>
 </html>
