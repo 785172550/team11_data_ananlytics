@@ -9,11 +9,12 @@
 		<title>Generic - Phantom by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/myCss.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->		
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<!--[if lte IE 8]><script src="./assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="./assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="./assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="./assets/css/ie8.css" /><![endif]-->
+		
 	</head>
 	<body>
 		<!-- Wrapper -->
@@ -22,10 +23,15 @@
 				<!-- Header -->
 					<header id="header">
 						<div class="inner">
-
+							<!-- Search -->
+								<div class="">
+									<div class="input-group">
+										<input id = "search" type="text" class="form-control input-lg"><span style = "background:#5f9ce8" class="input-group-addon btn btn-primary" onclick = "search()">搜索</span>
+									</div>
+								</div>		
 							<!-- Logo -->
-								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+								<a href="./index.html" class="logo">
+									<span class="symbol"><img src="./images/logo.svg" alt="" /></span><span class="title">Phantom</span>
 								</a>
 
 							<!-- Nav -->
@@ -33,13 +39,7 @@
 									<ul>
 										<li><a href="#menu">Menu</a></li>
 									</ul>
-								</nav>
-							<!-- Search -->
-								<form action = "search.html" class = "search d6">
-								  <input type="text" placeholder="search stocks">
-								  <button type="submit"></button>
-								</form>
-								
+								</nav>																		
 						</div>
 					</header>
 
@@ -47,11 +47,11 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="topTen.html">The Top10</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a href="./index.html">Home</a></li>
+							<li><a href="./topTen.html">The Top10</a></li>
+							<li><a href="./generic.html">Tempus etiam</a></li>
+							<li><a href="./generic.html">Consequat dolor</a></li>
+							<li><a href="./elements.html">Elements</a></li>
 						</ul>
 					</nav>
 
@@ -62,14 +62,14 @@
 							<div style = "width: 59em; height: 400px;">
 								<div id="show_Stock" style="width:57em; height:400px; float:left"></div>
 								<div style = "width:2em; height:400px; float: right;">
-									<input class = "flag K-line1" type="submit" onclick="changeGraph(this);" value="K-line1" />
-									<input class = "flag K-line2" type="submit" onclick="changeGraph(this);" value="K-line2" />
-									<input class = "flag K-line3" type="submit" onclick="changeGraph(this);" value="K-line3" />
-									<input class = "flag K-line4" type="submit" onclick="changeGraph(this);" value="K-line4" />
-									<input class = "flag K-line5" type="submit" onclick="changeGraph(this);" value="K-line5" />
+									<button type="button" class="btn btn-default btn-lg active" onclick="changeGraph(this);" value="K-line1">K-line1</button>
+									<button type="button" class="btn btn-default btn-lg active" onclick="changeGraph(this);" value="K-line2">K-line2</button>
+									<button type="button" class="btn btn-default btn-lg active" onclick="changeGraph(this);" value="K-line3">K-line3</button>
+									<button type="button" class="btn btn-default btn-lg active" onclick="changeGraph(this);" value="K-line4">K-line4</button>
+									<button type="button" class="btn btn-default btn-lg active" onclick="changeGraph(this);" value="K-line5">K-line5</button>
 								</div>
 							</div>
-							<p id="a">Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
+							<p id="a"></p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
 							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
 						</div>
@@ -77,14 +77,14 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/echarts.js" ></script>
-			<script src="assets/js/graphs.js" ></script>
-			<script type="text/javascript">
+			<script src="./assets/js/jquery.min.js"></script>
+			<script src="./assets/js/skel.min.js"></script>
+			<script src="./assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="./assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="./assets/js/main.js"></script>
+			<script src="./assets/js/echarts.js" ></script>
+			<script src="./assets/js/graphs.js" ></script>
+	<script type="text/javascript">
 
 		$(document).ready(function () {
 			var thisURL = document.URL;    
@@ -94,7 +94,7 @@
             $.post("/stock/"+showval, function (data,status) {
                 $("#a").text(
                 JSON.stringify(data) + "\n"
-                +JSON.stringify(status))
+                +JSON.stringify(status));
             });
         
 		});

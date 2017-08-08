@@ -1,290 +1,205 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>the top10 list</title>
-    <meta name="keywords" content="top10" />
-    <meta name="description" content="top10 list" />
-    <!--css引入-->
-    <link href="assets/css/common.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-    <!--js引入-->
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/tab.js"></script>
-</head>
-<body>
-<div style="width:1000px;margin: 0 auto;">
-    <h1 class="titleH1 underNone clearfix">
-        <span class="left underNone underLine">STOCK PRODUCTS </span>
-    </h1>
-    <div class="jyTable">
-        <div class="clearfix">
-            <ul class="title title1 left">
-                <li class='cur'>long</li>
-                <li>short</li>
-                <li>ETF</li>
-            </ul>
-            <ul class="titleexp right" style="padding-top: 8px;">
-                <li>long成交量：378.9</li>
-                <li>short成交量：411.2</li>
-                <li>ETF成交量：189.2</li>
-            </ul>
-        </div>
-        <div class='zong'>
-            <div class="list list1">
-                <div class="tabCon">
-                    <ul>
-                        <li class="tabth clearfix">
-                            <span style="width: 13%">Symbol</span>
-                            <span style="width: 12%">Company Name</span>
-                            <span style="width: 10%">Type</span>
-                            <span style="width: 16%">Last Update</span>
-                            <span style="width: 16%">Alter Price</span>
-                            <span style="width: 16%">Current Price</span>
-                            <span style="width: 15%">Chart</span>
-                        </li>
-                    </ul>
-                    <div id="s1">
-                        <ul class="tabUl">
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                            </li>
-							<li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                            </li>
+	<head>
+		<title>Generic - Phantom by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="keywords" content="top10" />
+		<meta name="description" content="top10 list" />
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
+		<!--[if lte IE 8]><script src="./assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="./assets/css/main.css" type="text/css"/>
+		<!--[if lte IE 9]><link rel="stylesheet" href="./assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="./assets/css/ie8.css" /><![endif]-->
+		<!--js引入-->
+		<script type="text/javascript" src="./assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap-tab.js"></script>
+		<script type="text/javascript" src="./assets/js/tab.js"></script>
+		<script src="./assets/js/skel.min.js"></script>
+		<script src="./assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="./assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="./assets/js/main.js"></script>	
+	</head>
+	
+	<body>
+		<div id="wrapper">
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<!-- Search -->
+						<div class="">
+							<div class="input-group">
+								<input id = "search" type="text" class="form-control input-lg"><span style = "background:#5f9ce8" class="input-group-addon btn btn-primary" onclick = "search()">搜索</span>
+							</div>
+						</div>		
+					<!-- Logo -->
+						<a href="./index.html" class="logo">
+							<span class="symbol"><img src="./images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+						</a>
 
-                        </ul>
-                    </div>
-                </div>
-                <div class="tabCon">
-                    <ul>
-                        <li class="tabth clearfix">
-                            <span style="width: 13%">名称</span>
-                            <span style="width: 12%">代码</span>
-                            <span style="width: 10%">规模</span>
-                            <span style="width: 16%">价格</span>
-                            <span style="width: 16%">发售日期</span>
-                            <span style="width: 16%">截止日期</span>
-                            <span style="width: 15%">操作</span>
-                        </li>
-                    </ul>
-                    <div id="s2">
-                        <ul class="tabUl">
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                            </li>
-                            <li class="tabtr clearfix">
-                                <span style="width: 13%; color: #F7001E">APPL</span>
-                                <span style="width: 12%;color: #AB9C08">61000165</span>
-                                <span style="width: 10%;color: #067D14">大</span>
-                                <span style="width: 15%">5000000.0</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <span style="width: 17%">2014-12-12</span>
-                                <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="tabCon">
-                <ul>
-                    <li class="tabth clearfix">
-                        <span style="width: 13%">名称</span>
-                        <span style="width: 12%">代码</span>
-                        <span style="width: 10%">规模</span>
-                        <span style="width: 16%">价格</span>
-                        <span style="width: 16%">发售日期</span>
-                        <span style="width: 16%">截止日期</span>
-                        <span style="width: 15%">操作</span>
-                    </li>
-                </ul>
-                <div id="s3">
-                    <ul class="tabUl">
-                        <li class="tabtr clearfix">
-                            <span style="width: 13%; color: #F7001E">APPL</span>
-                            <span style="width: 12%;color: #AB9C08">61000165</span>
-                            <span style="width: 10%;color: #067D14">大</span>
-                            <span style="width: 15%">5000000.0</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-                        </li>
-                        <li class="tabtr clearfix">
-                            <span style="width: 13%; color: #F7001E">APPL</span>
-                            <span style="width: 12%;color: #AB9C08">61000165</span>
-                            <span style="width: 10%;color: #067D14">大</span>
-                            <span style="width: 15%">5000000.0</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-                        </li>
-                        <li class="tabtr clearfix">
-                            <span style="width: 13%; color: #F7001E">APPL</span>
-                            <span style="width: 12%;color: #AB9C08">61000165</span>
-                            <span style="width: 10%;color: #067D14">大</span>
-                            <span style="width: 15%">5000000.0</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                        </li>
-                        <li class="tabtr clearfix">
-                            <span style="width: 13%; color: #F7001E">APPL</span>
-                            <span style="width: 12%;color: #AB9C08">61000165</span>
-                            <span style="width: 10%;color: #067D14">大</span>
-                            <span style="width: 15%">5000000.0</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                        </li>
-                        <li class="tabtr clearfix">
-                            <span style="width: 13%; color: #F7001E">APPL</span>
-                            <span style="width: 12%;color: #AB9C08">61000165</span>
-                            <span style="width: 10%;color: #067D14">大</span>
-                            <span style="width: 15%">5000000.0</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                        </li>
-                        <li class="tabtr clearfix">
-                            <span style="width: 13%; color: #F7001E">APPL</span>
-                            <span style="width: 12%;color: #AB9C08">61000165</span>
-                            <span style="width: 10%;color: #067D14">大</span>
-                            <span style="width: 15%">5000000.0</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <span style="width: 17%">2014-12-12</span>
-                            <a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
+					<!-- Nav -->
+						<nav>
+							<ul>
+								<li><a href="#menu">Menu</a></li>
+							</ul>
+						</nav>																		
+				</div>
+			</header>
+
+		<!-- Menu -->
+			<nav id="menu">
+				<h2>Menu</h2>
+				<ul>
+					<li><a href="./index.html">Home</a></li>
+					<li><a href="./topTen.html">The Top10</a></li>
+					<li><a href="./generic.html">Tempus etiam</a></li>
+					<li><a href="./generic.html">Consequat dolor</a></li>
+					<li><a href="./elements.html">Elements</a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+				<div class="inner">
+					<div style="margin: 0 auto;">
+						<h1 class="titleH1 underNone clearfix">
+							<span class="left underNone underLine">STOCK PRODUCTS </span>
+						</h1>
+						<div class="jyTable">
+							<div class="clearfix">
+								<ul class="title title1 left">
+									<li class='cur'><a href="#zong" data-toggle="tab">long</a></li>
+									<li><a href="#zong" data-toggle="tab">short</a></li>
+									<li><a href="#zong" data-toggle="tab">ETF</a></li>
+								</ul>
+								<ul class="titleexp right" style="padding-top: 8px;">
+									<li>long成交量：378.9</li>
+									<li>short成交量：411.2</li>
+									<li>ETF成交量：189.2</li>
+								</ul>
+							</div>
+							<div class='zong'>
+								<div class="list list1">
+									<div class="tabCon">
+										<ul>
+											<li class="tabth clearfix">
+												<span style="width: 13%">Symbol</span>
+												<span style="width: 12%">Company Name</span>
+												<span style="width: 10%">Type</span>
+												<span style="width: 16%">Last Update</span>
+												<span style="width: 16%">Alter Price</span>
+												<span style="width: 16%">Current Price</span>
+												<span style="width: 15%">Chart</span>
+											</li>
+										</ul>
+										<div id="s1">
+											<ul class="tabUl">
+												<li class="tabtr clearfix">
+													<span style="width: 13%; color: #F7001E">APPL</span>
+													<span style="width: 12%;color: #AB9C08">61000165</span>
+													<span style="width: 10%;color: #067D14">大</span>
+													<span style="width: 15%">5000000.0</span>
+													<span style="width: 17%">2014-12-12</span>
+													<span style="width: 17%">2014-12-12</span>
+													<a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
+												</li>
+												<li class="tabtr clearfix">
+													<span style="width: 13%; color: #F7001E">APPL</span>
+													<span style="width: 12%;color: #AB9C08">61000165</span>
+													<span style="width: 10%;color: #067D14">大</span>
+													<span style="width: 15%">5000000.0</span>
+													<span style="width: 17%">2014-12-12</span>
+													<span style="width: 17%">2014-12-12</span>
+													<a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
+												</li>
+												<li class="tabtr clearfix">
+													<span style="width: 13%; color: #F7001E">APPL</span>
+													<span style="width: 12%;color: #AB9C08">61000165</span>
+													<span style="width: 10%;color: #067D14">大</span>
+													<span style="width: 15%">5000000.0</span>
+													<span style="width: 17%">2014-12-12</span>
+													<span style="width: 17%">2014-12-12</span>
+													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
+												</li>
+												<li class="tabtr clearfix">
+													<span style="width: 13%; color: #F7001E">APPL</span>
+													<span style="width: 12%;color: #AB9C08">61000165</span>
+													<span style="width: 10%;color: #067D14">大</span>
+													<span style="width: 15%">5000000.0</span>
+													<span style="width: 17%">2014-12-12</span>
+													<span style="width: 17%">2014-12-12</span>
+													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
+												</li>
+												<li class="tabtr clearfix">
+													<span style="width: 13%; color: #F7001E">APPL</span>
+													<span style="width: 12%;color: #AB9C08">61000165</span>
+													<span style="width: 10%;color: #067D14">大</span>
+													<span style="width: 15%">5000000.0</span>
+													<span style="width: 17%">2014-12-12</span>
+													<span style="width: 17%">2014-12-12</span>
+													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
+												</li>
+												<li class="tabtr clearfix">
+													<span style="width: 13%; color: #F7001E">APPL</span>
+													<span style="width: 12%;color: #AB9C08">61000165</span>
+													<span style="width: 10%;color: #067D14">大</span>
+													<span style="width: 15%">5000000.0</span>
+													<span style="width: 17%">2014-12-12</span>
+													<span style="width: 17%">2014-12-12</span>
+													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
+												</li>
+												<li class="tabtr clearfix">
+													<span style="width: 13%; color: #F7001E">APPL</span>
+													<span style="width: 12%;color: #AB9C08">61000165</span>
+													<span style="width: 10%;color: #067D14">大</span>
+													<span style="width: 15%">5000000.0</span>
+													<span style="width: 17%">2014-12-12</span>
+													<span style="width: 17%">2014-12-12</span>
+													<a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
+												</li>
+												<li class="tabtr clearfix">
+													<span style="width: 13%; color: #F7001E">APPL</span>
+													<span style="width: 12%;color: #AB9C08">61000165</span>
+													<span style="width: 10%;color: #067D14">大</span>
+													<span style="width: 15%">5000000.0</span>
+													<span style="width: 17%">2014-12-12</span>
+													<span style="width: 17%">2014-12-12</span>
+													<a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
+												</li>
+												<li class="tabtr clearfix">
+													<span style="width: 13%; color: #F7001E">APPL</span>
+													<span style="width: 12%;color: #AB9C08">61000165</span>
+													<span style="width: 10%;color: #067D14">大</span>
+													<span style="width: 15%">5000000.0</span>
+													<span style="width: 17%">2014-12-12</span>
+													<span style="width: 17%">2014-12-12</span>
+													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
+												</li>
+												<li class="tabtr clearfix">
+													<span style="width: 13%; color: #F7001E">APPL</span>
+													<span style="width: 12%;color: #AB9C08">61000165</span>
+													<span style="width: 10%;color: #067D14">大</span>
+													<span style="width: 15%">5000000.0</span>
+													<span style="width: 17%">2014-12-12</span>
+													<span style="width: 17%">2014-12-12</span>
+													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
+												</li>
+
+											</ul>
+										</div>
+									</div>									
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</body>
 </html>
