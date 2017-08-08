@@ -2,16 +2,14 @@ package com.example.model;
 
 import org.hibernate.annotations.GeneratorType;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by Kenneth on 2017/8/7.
  */
 
 @Entity
+@Table(name = "stock")
 public class Stock {
 
     @Id

@@ -21,9 +21,10 @@ public class StockController {
     @RequestMapping("/stock/{name}")
     public Object getStockDayInfo(@PathVariable String name) {
         Stock stock = new Stock();
-        stock.setName(name);
+        stock.setName("qqqqqwwwwww");
         stock.setDate(2);
         stock.setId(1);
+        stock.setHigh(5000);
         return stock;
     }
 

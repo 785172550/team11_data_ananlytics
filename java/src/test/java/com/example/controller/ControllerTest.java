@@ -13,9 +13,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -41,14 +44,13 @@ public class ControllerTest {
 
     @Test
     public void getStock() throws Exception {
-//                mvc.perform(MockMvcRequestBuilders.post("/post")
-//                .param("title","test")
-//                .param("content","test")
-//                .accept(MediaType.APPLICATION_JSON))
-//                .andReturn();
-        mvc.perform(MockMvcRequestBuilders.get("/stock/apple")
+
+        MvcResult res = mvc.perform(MockMvcRequestBuilders.get("/stock/apple")
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+//                .andExpect(content().json("'name':'apple'"))
+                .andDo(MockMvcResultHandlers.print())
+                .andReturn();
     }
 
     @Test
@@ -56,7 +58,9 @@ public class ControllerTest {
 
         mvc.perform(MockMvcRequestBuilders.get("/stock_10")
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print())
+                .andReturn();
     }
 
     @Test
@@ -64,6 +68,8 @@ public class ControllerTest {
 
         mvc.perform(MockMvcRequestBuilders.get("/stock_special")
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print())
+                .andReturn();
     }
 }

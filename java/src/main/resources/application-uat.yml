@@ -13,10 +13,10 @@ spring:
     mode: LEGACYHTML5
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/test
+    url: jdbc:mysql://127.0.0.1:3306/alltypes
     username: root
     password: root
   jpa:
-    hibernate:            #每次都会创建表
+    hibernate:
       ddl-auto: update
     show-sql: true
