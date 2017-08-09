@@ -24,7 +24,7 @@
             <!-- Search -->
             <div class="">
                 <div class="input-group">
-                    <input id="search" type="text" class="form-control input-lg"><span style="background:#5f9ce8" class="input-group-addon btn btn-primary" onclick="search()">搜索</span>
+                    <input id="search" type="text" class="form-control input-lg" onkeydown="JavaScript:if (event.keyCode==13) search();"><span style="background:#5f9ce8" class="input-group-addon btn btn-primary" onclick="search()">搜索</span>
                 </div>
             </div>
             <!-- Logo -->
@@ -46,7 +46,7 @@
         <h2>Menu</h2>
         <ul>
             <li><a href="./index.html">Home</a></li>
-            <li><a href="./topTen.html">The Top10</a></li>
+            <li><a href="./topTen.html?name=topten">The Top10</a></li>
             <li><a href="./generic.html">Tempus etiam</a></li>
             <li><a href="./generic.html">Consequat dolor</a></li>
             <li><a href="./elements.html">Elements</a></li>
@@ -89,7 +89,7 @@
 									<span class="image">
 										<img src="./images/pic01.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html?stock=apple">
+                    <a id="detail1" >
                         <h2 id="name1"></h2>
                         <div id="cont1" class="content">
                             <p></p>
@@ -100,7 +100,7 @@
 									<span class="image">
 										<img src="./images/pic02.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html">
+                    <a id="detail2">
                         <h2 id="name2"></h2>
                         <div id="cont2" class="content">
                             <p></p>
@@ -111,7 +111,7 @@
 									<span class="image">
 										<img src="./images/pic03.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html">
+                    <a id="detail3">
                         <h2 id="name3"></h2>
                         <div id="cont3" class="content">
                             <p></p>
@@ -122,7 +122,7 @@
 									<span class="image">
 										<img src="./images/pic04.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html">
+                    <a id="detail4">
                         <h2 id="name4"></h2>
                         <div id="cont4" class="content">
                             <p></p>
@@ -133,7 +133,7 @@
 									<span class="image">
 										<img src="./images/pic05.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html">
+                    <a id="detail5">
                         <h2 id="name5"></h2>
                         <div id="cont5" class="content">
                             <p></p>
@@ -144,7 +144,7 @@
 									<span class="image">
 										<img src="./images/pic06.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html">
+                    <a id="detail6">
                         <h2 id="name6"></h2>
                         <div id="cont6" class="content">
                             <p></p>
@@ -155,7 +155,7 @@
 									<span class="image">
 										<img src="./images/pic07.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html">
+                    <a id="detail7">
                         <h2 id="name7"></h2>
                         <div id="cont7" class="content">
                             <p></p>
@@ -166,7 +166,7 @@
 									<span class="image">
 										<img src="./images/pic08.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html">
+                    <a id="detail8">
                         <h2 id="name8"></h2>
                         <div id="cont8" class="content">
                             <p></p>
@@ -177,7 +177,7 @@
 									<span class="image">
 										<img src="./images/pic09.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html">
+                    <a id="detail9">
                         <h2 id="name9"></h2>
                         <div id="cont9" class="content">
                             <p></p>
@@ -188,7 +188,7 @@
 									<span class="image">
 										<img src="./images/pic10.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html">
+                    <a id="detail10">
                         <h2 id="name10"></h2>
                         <div id="cont10" class="content">
                             <p></p>
@@ -199,7 +199,7 @@
 									<span class="image">
 										<img src="./images/pic11.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html">
+                    <a id="detail11">
                         <h2 id="name11"></h2>
                         <div id="cont11" class="content">
                             <p></p>
@@ -210,7 +210,7 @@
 									<span class="image">
 										<img src="./images/pic12.jpg" alt=""/>
 									</span>
-                    <a href="./generic.html">
+                    <a id="detail12">
                         <h2 id="name12"></h2>
                         <div id="cont12" class="content">
                             <p></p>
@@ -234,17 +234,20 @@
 <script type="text/javascript">
     function search() {
         var searchValue = document.getElementById("search").value;
+//		console.log(searchValue);
+		window.location.href = "./generic.html?stock=" + searchValue;
     }
-
+	
     window.onload = function () {
         var a;
         $.get("/index_msg", function (data, status) {
-            a = data;
+            a = data;			
             console.log(a)
             for (var i = 0; i < 12; i++) {
 //                console.log("h" + (i + 1));
                 document.getElementById("name" + (i + 1)).innerHTML = a[i]["id"];
                 document.getElementById("cont" + (i + 1)).innerHTML = a[i]["name"];
+				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + a[i]["name"];
             }
         })
 

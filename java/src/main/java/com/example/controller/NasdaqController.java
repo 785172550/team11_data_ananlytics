@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,26 +39,30 @@ public class NasdaqController {
 
 
     @RequestMapping("/index_msg")
-    public List<Nasdaq_2013> getIndexMsg(){
-       return respostory.getNasdaqByDate(20130101,20130301).stream()
-               .map(item -> {
+    public List<Nasdaq_2013> getIndexMsg() {
+        return respostory.getNasdaqByDate(20130101,20130301).stream()
+                .map(item -> {
                     log.info(item.toString());
                     return item;
                 }).limit(12).collect(Collectors.toList());
-//        return repository1.getNasdaqByDate(20110103,20110301).stream()
-//                .map(item -> {
-//                    log.debug(item.toString());
-//                    return item;
-//                })
-//                .limit(12).collect(Collectors.toList());
+    }
+
+    @RequestMapping("/stock/{name}")
+    public Object getMoreInfo(@PathVariable String name) {
+       return respostory.getNasdaqByDateAndName(20130101,20130301,name).stream()
+                .map(item -> {
+                    log.info(item.toString());
+                    return item;
+                }).collect(Collectors.toList());
     }
 
     @RequestMapping("/n_test")
-    public Object test(@RequestParam("test")String stock) throws IOException {
+    public Object test(@RequestParam("test") String stock) throws IOException {
         log.info(stock.toString());
         ObjectMapper mapper = new ObjectMapper();
-        Stock stock1 = mapper.readValue(stock,Stock.class);
+        Stock stock1 = mapper.readValue(stock, Stock.class);
         stock1.setHigh(555555);
         return stock1;
     }
+
 }

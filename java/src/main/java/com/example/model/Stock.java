@@ -36,6 +36,17 @@ public class Stock extends Security{
 
     }
 
+    public Stock(int time, int date, double open, double close, double high, double low, double volume, String name) {
+        this.time = time;
+        this.date = date;
+        this.open = open;
+        this.close = close;
+        this.high = high;
+        this.low = low;
+        this.volume = volume;
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Stock{" +

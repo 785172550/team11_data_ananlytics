@@ -1,9 +1,50 @@
+window.onload = function () {
+			var thisURL = document.URL;    
+			var getval =thisURL.split('?')[1];  
+			var showval= getval.split("=")[1];  
+            $.post("/stock/" + showval, function (data,status) {               
+                data = [
+                    {
+                        "id":10026,
+                        "name":"AAIT",
+                        "date":20130101,
+                        "open":27.69,
+                        "close":27.69,
+                        "high":27.69,
+                        "low":27.69,
+                        "volume":0,
+                        "hige":0
+                    }
+				];
+
+                var categoryData = [];
+                var values = [];
+                var volumes = [];
+                for (var i = 0; i < data.length; i++) {
+                    categoryData.push(data[i]["date"]);
+                    values.push(data[i]["open"]);
+                    values.push(data[i]["close"]);
+                    values.push(data[i]["high"]);
+                    values.push(data[i]["low"]);
+                    volumes.push([i, data[i]["volume"]]);
+                }
+                data =  {
+                    categoryData: categoryData,
+                    values: values,
+                    volumes: volumes
+                };
+
+
+				showCCD(data);
+            });
+}
+
 // 基于准备好的dom，初始化echarts实例
 var myChart = echarts.init(document.getElementById('show_Stock'));
 
 //加载日K线图
-function showCCD(){	
-	var data = splitData([
+function showCCD(data){	
+/*	var data = splitData([
 		['2013/1/24', 2320.26,2320.26,2287.3,2362.94,1688900000],
 		['2013/1/25', 2300,2291.3,2288.26,2308.38,1688900000],
 		['2013/1/28', 2295.35,2346.5,2295.35,2346.92,1688900000],
@@ -21,7 +62,7 @@ function showCCD(){
 		['2013/2/20', 2383.49,2397.18,2370.61,2397.94,1688900000],
 		['2013/2/21', 2378.82,2325.95,2309.17,2378.82,1688900000],
 		['2013/2/22', 2322.94,2314.16,2308.76,2330.88,1688900000]
-	]);
+	]);*/
 	var option = {
 		backgroundColor: '#eee',
         animation: false,
@@ -466,9 +507,6 @@ function calculateMA(dayCount, data) {
     return result;
 }
 
-
-showCCD();
-
 //增加按钮样式
 $(function () {
     //加载事件
@@ -493,10 +531,23 @@ function changeGraph(dom) {
 	switch(domValue){
 		case "CC-D": 
 			myChart.clear();
-			showCCD();
+			showCCD(data);
 			break;		
 		case "CC-W":
-			var data = splitData([
+			$.post("/type/" + "CC-W", function (data,status) {               
+                data = [{
+					"date":2013/1/24,
+					"max":7989,
+					"min":899,
+					"start":4356,
+					"end": 6987,
+					"capity":849389
+				}];
+				myChart.clear();
+				showCC(data);
+				break;
+            });
+			/*var data = splitData([
 				['2013/1/24', 2320.26,2320.26,2287.3,2362.94,1688900000],
 				['2013/1/25', 2300,2291.3,2288.26,2308.38,1688900000],
 				['2013/1/28', 2295.35,2346.5,2295.35,2346.92,1688900000],
@@ -517,7 +568,7 @@ function changeGraph(dom) {
 			]);
 			myChart.clear();
 			showCC(data);
-			break;
+			break;*/
 		case "CC-M":
 			var data = splitData([
 				['2013/1/24', 2320.26,2320.26,2287.3,2362.94,1688900000],

@@ -29,7 +29,7 @@
 					<!-- Search -->
 						<div class="">
 							<div class="input-group">
-								<input id = "search" type="text" class="form-control input-lg"><span style = "background:#5f9ce8" class="input-group-addon btn btn-primary" onclick = "search()">搜索</span>
+								<input id="search" type="text" class="form-control input-lg" onkeydown="JavaScript:if (event.keyCode==13) search();"><span style="background:#5f9ce8" class="input-group-addon btn btn-primary" onclick="search()">搜索</span>
 							</div>
 						</div>		
 					<!-- Logo -->
@@ -51,7 +51,7 @@
 				<h2>Menu</h2>
 				<ul>
 					<li><a href="./index.html">Home</a></li>
-					<li><a href="./topTen.html">The Top10</a></li>
+					<li><a href="./topTen.html?name=topten">The Top10</a></li>
 					<li><a href="./generic.html">Tempus etiam</a></li>
 					<li><a href="./generic.html">Consequat dolor</a></li>
 					<li><a href="./elements.html">Elements</a></li>
@@ -93,97 +93,8 @@
 											</li>
 										</ul>
 										<div id="s1">
-											<ul class="tabUl">
-												<li class="tabtr clearfix">
-													<span style="width: 13%; color: #F7001E">APPL</span>
-													<span style="width: 12%;color: #AB9C08">61000165</span>
-													<span style="width: 10%;color: #067D14">大</span>
-													<span style="width: 15%">5000000.0</span>
-													<span style="width: 17%">2014-12-12</span>
-													<span style="width: 17%">2014-12-12</span>
-													<a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-												</li>
-												<li class="tabtr clearfix">
-													<span style="width: 13%; color: #F7001E">APPL</span>
-													<span style="width: 12%;color: #AB9C08">61000165</span>
-													<span style="width: 10%;color: #067D14">大</span>
-													<span style="width: 15%">5000000.0</span>
-													<span style="width: 17%">2014-12-12</span>
-													<span style="width: 17%">2014-12-12</span>
-													<a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-												</li>
-												<li class="tabtr clearfix">
-													<span style="width: 13%; color: #F7001E">APPL</span>
-													<span style="width: 12%;color: #AB9C08">61000165</span>
-													<span style="width: 10%;color: #067D14">大</span>
-													<span style="width: 15%">5000000.0</span>
-													<span style="width: 17%">2014-12-12</span>
-													<span style="width: 17%">2014-12-12</span>
-													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-												</li>
-												<li class="tabtr clearfix">
-													<span style="width: 13%; color: #F7001E">APPL</span>
-													<span style="width: 12%;color: #AB9C08">61000165</span>
-													<span style="width: 10%;color: #067D14">大</span>
-													<span style="width: 15%">5000000.0</span>
-													<span style="width: 17%">2014-12-12</span>
-													<span style="width: 17%">2014-12-12</span>
-													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-												</li>
-												<li class="tabtr clearfix">
-													<span style="width: 13%; color: #F7001E">APPL</span>
-													<span style="width: 12%;color: #AB9C08">61000165</span>
-													<span style="width: 10%;color: #067D14">大</span>
-													<span style="width: 15%">5000000.0</span>
-													<span style="width: 17%">2014-12-12</span>
-													<span style="width: 17%">2014-12-12</span>
-													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-												</li>
-												<li class="tabtr clearfix">
-													<span style="width: 13%; color: #F7001E">APPL</span>
-													<span style="width: 12%;color: #AB9C08">61000165</span>
-													<span style="width: 10%;color: #067D14">大</span>
-													<span style="width: 15%">5000000.0</span>
-													<span style="width: 17%">2014-12-12</span>
-													<span style="width: 17%">2014-12-12</span>
-													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-												</li>
-												<li class="tabtr clearfix">
-													<span style="width: 13%; color: #F7001E">APPL</span>
-													<span style="width: 12%;color: #AB9C08">61000165</span>
-													<span style="width: 10%;color: #067D14">大</span>
-													<span style="width: 15%">5000000.0</span>
-													<span style="width: 17%">2014-12-12</span>
-													<span style="width: 17%">2014-12-12</span>
-													<a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-												</li>
-												<li class="tabtr clearfix">
-													<span style="width: 13%; color: #F7001E">APPL</span>
-													<span style="width: 12%;color: #AB9C08">61000165</span>
-													<span style="width: 10%;color: #067D14">大</span>
-													<span style="width: 15%">5000000.0</span>
-													<span style="width: 17%">2014-12-12</span>
-													<span style="width: 17%">2014-12-12</span>
-													<a style="width: 12%;color: #F7001E"><em class="clickbtn hot">热售中</em></a>
-												</li>
-												<li class="tabtr clearfix">
-													<span style="width: 13%; color: #F7001E">APPL</span>
-													<span style="width: 12%;color: #AB9C08">61000165</span>
-													<span style="width: 10%;color: #067D14">大</span>
-													<span style="width: 15%">5000000.0</span>
-													<span style="width: 17%">2014-12-12</span>
-													<span style="width: 17%">2014-12-12</span>
-													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-												</li>
-												<li class="tabtr clearfix">
-													<span style="width: 13%; color: #F7001E">APPL</span>
-													<span style="width: 12%;color: #AB9C08">61000165</span>
-													<span style="width: 10%;color: #067D14">大</span>
-													<span style="width: 15%">5000000.0</span>
-													<span style="width: 17%">2014-12-12</span>
-													<span style="width: 17%">2014-12-12</span>
-													<a style="width: 12%;color: #F7001E"><em class="clickbtn pass">交易中</em></a>
-												</li>
+											<ul id="tabUI" class="tabUl">
+												
 
 											</ul>
 										</div>
@@ -197,6 +108,65 @@
 			</div>
 			
 		</div>
+		
+		<script type="text/javascript">
+			window.onload = function (){
+				//$.get("/topten/", function (data, status) {
+					data = [{
+						"Symbol":7989,
+						"Name":899,
+						"Type":4356,
+						"Update": 6987,
+						"APrice":849389,
+						"CPrice":849389,
+						"chart":849389
+					}];
+					
+					var ul = document.getElementById("tabUI");
+					for(var i = 0; i < 10; i++){
+						var li = document.createElement('li');
+						var span1 = document.createElement('span');
+						var span2 = document.createElement('span');
+						var span3 = document.createElement('span');
+						var span4 = document.createElement('span');
+						var span5 = document.createElement('span');
+						var span6 = document.createElement('span');
+						var a = document.createElement('a');
+						
+						li.className = "tabtr clearfix";
+						li.appendChild(span1);
+						span1.style = "width: 13%; color: #F7001E";
+						span1.innerHTML = data[i]["Symbol"];						
+						li.appendChild(span2);
+						span2.style = "width: 12%;color: #AB9C08";
+						span2.innerHTML = data[i]["Name"];
+						li.appendChild(span3);
+						span3.style = "width: 10%;color: #067D14";
+						span3.innerHTML = data[i]["Type"];
+						li.appendChild(span4);
+						span4.style = "width: 15%";
+						span4.innerHTML = data[i]["Update"];
+						li.appendChild(span5);
+						span5.style = "width: 17%";
+						span5.innerHTML = data[i]["APrice"];
+						li.appendChild(span6);
+						span6.style = "width: 17%";
+						span6.innerHTML = data[i]["CPrice"];
+						li.appendChild(a);
+						a.style = "width: 12%;color: #F7001E";
+						a.innerHTML = "show chart";
+						a.href = "./index";
+						ul.appendChild(li);
+					}
+					document.getElementById('test').appendChild(ul);				
+				//};				
+			}
+			function search() {
+				var searchValue = document.getElementById("search").value;
+		//		console.log(searchValue);
+				window.location.href = "./generic.html?stock=" + searchValue;
+			}
+		</script>
 		
 	</body>
 </html>

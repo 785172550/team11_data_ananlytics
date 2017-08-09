@@ -25,15 +25,11 @@ public class StockController {
     private DemoRepository respostory;
 
 
-    @RequestMapping("/stock/{name}")
-    public Object getStockDayInfo(@PathVariable String name) {
-        Stock stock = new Stock();
-        stock.setName("qqqqqwwwwww");
-        stock.setDate(2);
-        stock.setId(1);
-        stock.setHigh(5000);
-        return stock;
-    }
+//    @RequestMapping("/stock/{name}")
+//    public Object getStockDayInfo(@PathVariable String name) {
+//        respostory.getStockByDateNoTime(201)
+//        return null;
+//    }
 
     @RequestMapping("/stock_10")
     public List<Stock> getTop10() {
