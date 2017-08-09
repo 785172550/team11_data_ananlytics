@@ -17,4 +17,5 @@ public interface NasdaqRespostory extends JpaRepository<Nasdaq_2013,Integer>{
 
     @Query(value = "select * from nasdaq_2013 n where n.date between ?1 and ?2",nativeQuery = true)
     List<Nasdaq_2013> getNasdaqByDate(int start,int end);
+
 }
