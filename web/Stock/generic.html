@@ -82,12 +82,46 @@
 			<script src="./assets/js/echarts.js" ></script>
 			<script src="./assets/js/graphs.js" ></script>
 	<script type="text/javascript">
+		window.onload = function () {
+			var thisURL = document.URL;    
+			var getval =thisURL.split('?')[1];  
+			var showval= getval.split("=")[1];  
+            $.post("/stock/" + showval, function (data,status) {               
+                data = [{
+					"max":7989,
+					"min":899,
+					"start":4356,
+					"end": 6987,
+					"capity":849389
+				}];
+            });
+			
+			var a;
+			$.get("/stock/", function (data, status) {
+				a = data;
+				a = [{
+					"max":7989,
+					"min":899,
+					"start":4356,
+					"end": 6987,
+					"capity":849389
+				}];
+				console.log(a)
+				for (var i = 0; i < 12; i++) {
+	//                console.log("h" + (i + 1));
+					document.getElementById("name" + (i + 1)).innerHTML = a[i]["id"];
+					document.getElementById("cont" + (i + 1)).innerHTML = a[i]["name"];
+					document.getElementById("detail" + (i + 1)).href = './generic.html?name=' + a[i]["name"];
+				}
+			})
 
+		};
+		
 		$(document).ready(function () {
 			var thisURL = document.URL;    
-			var  getval =thisURL.split('?')[1];  
+			var getval =thisURL.split('?')[1];  
 			var showval= getval.split("=")[1];  
-            console.log("111")
+ //           console.log("111")
             $.post("/stock/"+showval, function (data,status) {
                 $("#a").text(
                 JSON.stringify(data) + "\n"
