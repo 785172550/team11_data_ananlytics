@@ -21,7 +21,7 @@
 							<!-- Search -->
 								<div class="">
 									<div class="input-group">
-										<input id = "search" type="text" class="form-control input-lg"><span style = "background:#5f9ce8" class="input-group-addon btn btn-primary" onclick = "search()">搜索</span>
+										<input id="search" type="text" class="form-control input-lg" onkeydown="JavaScript:if (event.keyCode==13) search();"><span style="background:#5f9ce8" class="input-group-addon btn btn-primary" onclick="search()">搜索</span>
 									</div>
 								</div>		
 							<!-- Logo -->
@@ -116,6 +116,12 @@
 			})
 
 		};
+		
+		function search() {
+			var searchValue = document.getElementById("search").value;
+	//		console.log(searchValue);
+			window.location.href = "./generic.html?stock=" + searchValue;
+		}
 		
 		$(document).ready(function () {
 			var thisURL = document.URL;    
