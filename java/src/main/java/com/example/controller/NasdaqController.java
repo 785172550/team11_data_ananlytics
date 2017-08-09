@@ -1,8 +1,10 @@
 package com.example.controller;
 
+import com.example.dao.LiffeRepository;
 import com.example.dao.NasdaqRespostory;
 import com.example.model.Liffe;
 import com.example.model.Nasdaq_2013;
+import com.example.model.Security;
 import com.example.model.Stock;
 import com.example.utils.DemoUtils;
 import com.fasterxml.jackson.core.JsonParser;
@@ -31,9 +33,23 @@ public class NasdaqController {
     @Autowired
     NasdaqRespostory respostory;
 
+    @Autowired
+    LiffeRepository repository1;
+
+
     @RequestMapping("/index_msg")
     public List<Nasdaq_2013> getIndexMsg(){
-       return respostory.getNasdaqByDate(20130930,20131111).stream().limit(12).collect(Collectors.toList());
+       return respostory.getNasdaqByDate(20130101,20130301).stream()
+               .map(item -> {
+                    log.info(item.toString());
+                    return item;
+                }).limit(12).collect(Collectors.toList());
+//        return repository1.getNasdaqByDate(20110103,20110301).stream()
+//                .map(item -> {
+//                    log.debug(item.toString());
+//                    return item;
+//                })
+//                .limit(12).collect(Collectors.toList());
     }
 
     @RequestMapping("/n_test")
