@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.DataAnanlyticsApplication;
+import com.example.dao.DemoRepository;
 import com.example.model.Stock;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,6 +37,8 @@ public class ControllerTest {
 
     @Autowired
     private StockController controller;
+    @Autowired
+    private DemoRepository repository;
 
     @Before
     public void setUp() {
@@ -71,5 +74,6 @@ public class ControllerTest {
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();
+//        repository.getStockByName("a").forEach(stock -> log.info(stock.getName()));
     }
 }

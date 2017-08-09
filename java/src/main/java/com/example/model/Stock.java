@@ -10,25 +10,30 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "stock")
-public class Stock {
+public class Stock extends Security{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    int date;
     int time;
+    int date;
     double open;
     double close;
     double high;
     double low;
-    int volume;
+    double volume;
+
     double splitfactor;
     double earnings;
     double dividends;
+
+    @Column(name = "stockname")
     String name;
 
+
     public Stock() {
+
     }
 
     @Override
@@ -105,11 +110,11 @@ public class Stock {
         this.low = low;
     }
 
-    public int getVolume() {
+    public double getVolume() {
         return volume;
     }
 
-    public void setVolume(int volume) {
+    public void setVolume(double volume) {
         this.volume = volume;
     }
 

@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "nasdaq_2013")
-public class Nasdaq_2013 {
+public class Nasdaq_2013 extends Security{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,9 +22,13 @@ public class Nasdaq_2013 {
     int date;
     double open;
     double close;
-    double hige;
+    double high;
     double low;
-    double vol;
+
+    @Column(name = "vol")
+    double volume;
+
+    double hige;
 
     @Override
     public String toString() {
@@ -34,23 +38,25 @@ public class Nasdaq_2013 {
                 ", date=" + date +
                 ", open=" + open +
                 ", close=" + close +
-                ", hige=" + hige +
+                ", high=" + high +
                 ", low=" + low +
-                ", vol=" + vol +
+                ", volume=" + volume +
+                ", hige=" + hige +
                 '}';
     }
 
     public Nasdaq_2013() {
     }
 
-    public Nasdaq_2013(String name, int date, double open, double close, double hige, double low, double vol) {
+    public Nasdaq_2013(String name, int date, double open, double close, double high, double low, double volume, double hige) {
         this.name = name;
         this.date = date;
         this.open = open;
         this.close = close;
-        this.hige = hige;
+        this.high = high;
         this.low = low;
-        this.vol = vol;
+        this.volume = volume;
+        this.hige = hige;
     }
 
     public int getId() {
@@ -93,14 +99,6 @@ public class Nasdaq_2013 {
         this.close = close;
     }
 
-    public double getHige() {
-        return hige;
-    }
-
-    public void setHige(double hige) {
-        this.hige = hige;
-    }
-
     public double getLow() {
         return low;
     }
@@ -109,11 +107,27 @@ public class Nasdaq_2013 {
         this.low = low;
     }
 
-    public double getVol() {
-        return vol;
+    public double getHigh() {
+        return high;
     }
 
-    public void setVol(double vol) {
-        this.vol = vol;
+    public void setHigh(double high) {
+        this.high = high;
+    }
+
+    public double getVolume() {
+        return volume;
+    }
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
+
+    public double getHige() {
+        return hige;
+    }
+
+    public void setHige(double hige) {
+        this.hige = hige;
     }
 }

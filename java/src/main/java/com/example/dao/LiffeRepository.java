@@ -1,0 +1,17 @@
+package com.example.dao;
+
+import com.example.model.Liffe;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+
+/**
+ * Created by Kenneth on 2017/8/9.
+ */
+public interface LiffeRepository extends JpaRepository<Liffe,Integer> {
+
+
+    @Query(value = "select * from  Liffe l where l.ticker = ?1",nativeQuery = true)
+    List<Liffe> getLiffeByName(String name);
+}
