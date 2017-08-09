@@ -1,29 +1,18 @@
 window.onload = function () {
-/*			var thisURL = document.URL;    
+			var thisURL = document.URL;    
 			var getval =thisURL.split('?')[1];  
 			var showval= getval.split("=")[1];  
             $.post("/stock/" + showval, function (data,status) {               
-                data = [{
+                /*data = [{
 					"date":2013/1/24,
 					"max":7989,
 					"min":899,
 					"start":4356,
 					"end": 6987,
 					"capity":849389
-				}];
+				}];*/
 				showCCD(data);
             });
-			data = [{
-				"date":'2013/1/24',
-				"max":7989,
-				"min":899,
-				"start":4356,
-				"end": 6987,
-				"capity":849389
-			}
-			];*/
-			var rawData = mergeData();
-			showCCD(rawData);			
 }
 
 // 基于准备好的dom，初始化echarts实例
@@ -496,9 +485,10 @@ function splitData(rawData) {
     var values = [];
     var volumes = [];
     for (var i = 0; i < rawData.length; i++) {
-        categoryData.push(rawData[i].splice(0, 1)[0]);
-        values.push(rawData[i]);
-        volumes.push([i, rawData[i][4], rawData[i][0] > rawData[i][1] ? 1 : -1]);
+        categoryData.push(rawData[i].date);
+		var temp = [rawData[i].open, rawData[i].close, rawData[i].low, rawData[i].high];
+        values.push(temp);
+        volumes.push([i, rawData[i].volume, rawData[i].open > rawData[i].close ? 1 : -1]);
     }
    return {
         categoryData: categoryData,
