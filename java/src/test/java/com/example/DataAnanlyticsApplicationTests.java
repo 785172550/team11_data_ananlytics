@@ -1,7 +1,6 @@
 package com.example;
 
 
-import com.example.controller.DemoController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,12 +21,10 @@ public class DataAnanlyticsApplicationTests {
 
     private MockMvc mvc;
 
-    @Autowired
-    private DemoController demoController;
 
     @Before
     public void setUp() {
-        mvc = MockMvcBuilders.standaloneSetup(demoController).build();
+
     }
 
     @Test

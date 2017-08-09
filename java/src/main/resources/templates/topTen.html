@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Top10 List</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="keywords" content="top10" />
+		<meta name="description" content="top10 list" />
+		<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+		<!--[if lte IE 8]><script src="./assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="./assets/css/main.css" type="text/css"/>
+		<!--[if lte IE 9]><link rel="stylesheet" href="./assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="./assets/css/ie8.css" /><![endif]-->
+		<!--js引入-->
+		<script type="text/javascript" src="./assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<script src="./assets/js/skel.min.js"></script>
+		<script src="./assets/js/util.js"></script><!-- 三个js文件共同显示菜单栏的动画 -->
+		<script src="./assets/js/main.js"></script>
+		<!--[if lte IE 8]><script src="./assets/js/ie/respond.min.js"></script><![endif]-->
+	</head>
+	
+	<body>
+		<div id="wrapper">
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<!-- Search -->
+						<div class="">
+							<div class="input-group">
+								<input id="search" type="text" class="form-control input-lg" onkeydown="JavaScript:if (event.keyCode==13) search();"><span style="background:#5f9ce8" class="input-group-addon btn btn-primary" onclick="search()">搜索</span>
+							</div>
+						</div>		
+					<!-- Logo -->
+						<a href="./index.html" class="logo">
+							<span class="symbol"><img src="./images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+						</a>
+
+					<!-- Nav -->
+						<nav>
+							<ul>
+								<li><a href="#menu">Menu</a></li>
+							</ul>
+						</nav>																		
+				</div>
+			</header>
+
+		<!-- Menu -->
+			<nav id="menu">
+				<h2>Menu</h2>
+				<ul>
+					<li><a href="./index.html">Home</a></li>
+					<li><a href="./topTen.html?name=topten">The Top10</a></li>
+					<li><a href="./generic.html">Tempus etiam</a></li>
+					<li><a href="./generic.html">Consequat dolor</a></li>
+					<li><a href="./elements.html">Elements</a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+				<div class="inner">
+					<div style="margin: 0 auto;">
+						<h1 class="titleH1 underNone clearfix">
+							<span class="left underNone underLine">STOCK PRODUCTS </span>
+						</h1>
+						<div class="jyTable">
+							<div class="clearfix">
+								<ul class="title title1 left nav nav-tabs">
+									<li class='cur'><a href="#zong" data-toggle="tab">long</a></li>
+									<li><a href="#zong" data-toggle="tab">short</a></li>
+									<li><a href="#zong" data-toggle="tab">ETF</a></li>
+								</ul>
+								<ul class="titleexp right" style="padding-top: 8px;">
+									<li>long成交量：378.9</li>
+									<li>short成交量：411.2</li>
+									<li>ETF成交量：189.2</li>
+								</ul>
+							</div>
+							<div  id = "zong" class='zong tab-pane fade in active' >
+								<div class="list list1">
+									<div class="tabCon">
+										<ul>
+											<li class="tabth clearfix">
+												<span style="width: 13%">Symbol</span>
+												<span style="width: 12%">Company Name</span>
+												<span style="width: 10%">Type</span>
+												<span style="width: 16%">Last Update</span>
+												<span style="width: 16%">Alter Price</span>
+												<span style="width: 16%">Current Price</span>
+												<span style="width: 15%">Chart</span>
+											</li>
+										</ul>
+										<div id="s1">
+											<ul id="tabUI" class="tabUl">
+												
+
+											</ul>
+										</div>
+									</div>									
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript">
+			window.onload = function (){
+				//$.get("/topten/", function (data, status) {
+					data = [{
+						"Symbol":7989,
+						"Name":899,
+						"Type":4356,
+						"Update": 6987,
+						"APrice":849389,
+						"CPrice":849389,
+						"chart":849389
+					}];
+					
+					var ul = document.getElementById("tabUI");
+					for(var i = 0; i < 10; i++){
+						var li = document.createElement('li');
+						var span1 = document.createElement('span');
+						var span2 = document.createElement('span');
+						var span3 = document.createElement('span');
+						var span4 = document.createElement('span');
+						var span5 = document.createElement('span');
+						var span6 = document.createElement('span');
+						var a = document.createElement('a');
+						
+						li.className = "tabtr clearfix";
+						li.appendChild(span1);
+						span1.style = "width: 13%; color: #F7001E";
+						span1.innerHTML = data[i]["Symbol"];						
+						li.appendChild(span2);
+						span2.style = "width: 12%;color: #AB9C08";
+						span2.innerHTML = data[i]["Name"];
+						li.appendChild(span3);
+						span3.style = "width: 10%;color: #067D14";
+						span3.innerHTML = data[i]["Type"];
+						li.appendChild(span4);
+						span4.style = "width: 15%";
+						span4.innerHTML = data[i]["Update"];
+						li.appendChild(span5);
+						span5.style = "width: 17%";
+						span5.innerHTML = data[i]["APrice"];
+						li.appendChild(span6);
+						span6.style = "width: 17%";
+						span6.innerHTML = data[i]["CPrice"];
+						li.appendChild(a);
+						a.style = "width: 12%;color: #F7001E";
+						a.innerHTML = "show chart";
+						a.href = "./index";
+						ul.appendChild(li);
+					}
+					document.getElementById('test').appendChild(ul);				
+				//};				
+			}
+			function search() {
+				var searchValue = document.getElementById("search").value;
+		//		console.log(searchValue);
+				window.location.href = "./generic.html?stock=" + searchValue;
+			}
+		</script>
+		
+	</body>
+</html>

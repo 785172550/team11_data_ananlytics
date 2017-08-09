@@ -1,0 +1,21 @@
+@charset "utf-8";
+/*公共样式 start*/
+/*html,body{height:100%}*/body,ul,ol,li,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,form,fieldset,img,div,input{border:0 none;margin:0;padding:0;font-weight:normal;}
+ul,ol,li{list-style-type:none;}
+select,input,img{vertical-align:middle; outline:none;}
+input,button,select{font-family: "微软雅黑";color: #595757;}
+a img{border:0;}
+a{text-decoration:none; color:  #595757;}
+a:hover{text-decoration:underline; color:  #595757;}
+em,i{font-style:normal;}
+.left{float:left;}
+.right{float:right;}
+.textCenter{text-align:center;}
+.textRight{text-align:right;}
+.pointer{cursor:pointer;}
+/*清除浮动*/
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{zoom:1}
+
+body{font-size: 12px;color: #595757;font-family: "微软雅黑";background-color: #ffffff;}
+body a{color: #595757}
