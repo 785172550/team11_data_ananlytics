@@ -9,23 +9,24 @@ import java.util.DoubleSummaryStatistics;
 
 /**
  * Created by Kenneth on 2017/8/9.
+ *
  */
-public class Calculator {
+public class Calculator<T extends Security> {
     private static Calculator calculator = null;
 
-    private Calculator(){
+    public Calculator(){
 
     }
 
-    public static Calculator getCalculator(){
-        if(calculator == null) {
-            calculator = new Calculator();
-        }
-        return calculator;
-    }
+//    public static Calculator getCalculator(){
+//        if(calculator == null) {
+//            calculator = new Calculator();
+//        }
+//        return calculator;
+//    }
 
-    public List<StocksSort> CalculateIncre(List<List<Stock>> ls){
-        List<StocksSort> res = new ArrayList<StocksSort>();
+    public List<StocksSort<T>> CalculateIncre(List<List<T>> ls){
+        List<StocksSort<T>> res = new ArrayList<>();
 
         ls.forEach(item ->
                 res.add(new StocksSort(CalculateUpValue(item),item.get(0))));
@@ -34,7 +35,7 @@ public class Calculator {
         return res;
     }
 
-    private double CalculateUpValue(List<Stock> tmp){
+    private double CalculateUpValue(List<T> tmp){
         return (tmp.get(0).getClose() - tmp.get(1).getClose())/tmp.get(1).getClose();
     }
 

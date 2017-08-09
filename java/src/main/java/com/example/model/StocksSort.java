@@ -3,11 +3,11 @@ package com.example.model;
 /**
  * Created by Kenneth on 2017/8/9.
  */
-public class StocksSort implements Comparable<StocksSort>{
+public class StocksSort<T> implements Comparable<StocksSort>{
     private Double value;
-    private Stock stock;
+    private T stock;
 
-    public StocksSort(Double value, Stock stock) {
+    public StocksSort(Double value, T stock) {
         this.value = value;
         this.stock = stock;
     }
@@ -23,11 +23,11 @@ public class StocksSort implements Comparable<StocksSort>{
         this.value = value;
     }
 
-    public Stock getStock() {
+    public T getStock() {
         return stock;
     }
 
-    public void setStock(Stock stock) {
+    public void setStock(T stock) {
         this.stock = stock;
     }
 

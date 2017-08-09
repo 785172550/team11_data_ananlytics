@@ -2,10 +2,8 @@ package com.example.controller;
 
 import com.example.dao.LiffeRepository;
 import com.example.dao.NasdaqRespostory;
-import com.example.model.Liffe;
-import com.example.model.Nasdaq_2013;
-import com.example.model.Security;
-import com.example.model.Stock;
+import com.example.model.*;
+import com.example.service.Calculator;
 import com.example.utils.DemoUtils;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,11 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * Created by Kenneth on 2017/8/9.
+ *
  */
 
 @RestController
@@ -40,11 +41,23 @@ public class NasdaqController {
 
     @RequestMapping("/index_msg")
     public List<Nasdaq_2013> getIndexMsg() {
-        return respostory.getNasdaqByDate(20130101,20130301).stream()
+
+        List<Nasdaq_2013> res = respostory.getOrderName(20130101,20130102);
+        List<List<Nasdaq_2013>> ll = new ArrayList<>(); //两天的价格
+
+        for (int i=0;i<res.size()-2;i+=2){
+            List<Nasdaq_2013> item = new ArrayList<>();
+            item.add(res.get(i));
+            item.add(res.get(i+1));
+            ll.add(item);
+        }
+        List<StocksSort<Nasdaq_2013>> ss = new Calculator<Nasdaq_2013>().CalculateIncre(ll);
+        return ss.stream().skip(ss.size()-12)
+                .map(stocksSort -> stocksSort.getStock())
                 .map(item -> {
                     log.info(item.toString());
                     return item;
-                }).limit(12).collect(Collectors.toList());
+                }).collect(Collectors.toList());
     }
 
     @RequestMapping("/stock/{name}")
