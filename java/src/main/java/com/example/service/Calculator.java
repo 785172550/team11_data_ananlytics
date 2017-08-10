@@ -19,13 +19,6 @@ public class Calculator<T extends Security> {
 
     }
 
-//    public static Calculator getCalculator(){
-//        if(calculator == null) {
-//            calculator = new Calculator();
-//        }
-//        return calculator;
-//    }
-
     public List<StocksSort<T>> CalculateIncre(List<List<T>> ls){
         List<StocksSort<T>> res = new ArrayList<>();
 

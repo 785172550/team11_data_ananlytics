@@ -19,27 +19,27 @@
 <div id="wrapper">
 
     <!-- Header -->
-    <header id="header">
-        <div class="inner">
-            <!-- Search -->
-            <div class="">
-                <div class="input-group">
-                    <input id="search" type="text" class="form-control input-lg" onkeydown="JavaScript:if (event.keyCode==13) search();"><span style="background:#5f9ce8" class="input-group-addon btn btn-primary" onclick="search()">搜索</span>
-                </div>
-            </div>
-            <!-- Logo -->
-            <a href="./index.html" class="logo">
-                <span class="symbol"><img src="./images/logo.svg" alt=""/></span><span class="title">Phantom</span>
-            </a>
+	<header id="header">
+		<div class="inner">
+			<!-- Search -->
+				<div class="">
+					<div class="input-group" style="float:right;width:200px;height: 30px;">
+						<input style = "height: 30px;" id="search" type="text" class="form-control input-lg" onkeydown="JavaScript:if (event.keyCode==13) search();"><span style="background:lightgray;font-weight: bold;" class="input-group-addon btn btn-primary" onclick="search()">Search</span>
+					</div>
+				</div>		
+			<!-- Logo -->
+				<a href="./index.html" class="logo">
+					<span class="symbol"><img src="./images/logo.svg" alt="" /></span><span class="title">Team 11</span>
+				</a>
 
-            <!-- Nav -->
-            <nav>
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+			<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>																		
+		</div>
+	</header>
 
     <!-- Menu -->
     <nav id="menu">
@@ -63,24 +63,21 @@
                     veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
             </header>
             <div class="dropdown">
-                <button style="border:none" type="button" class="btn btn-sm dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">markets of stock
+                <button style="border:none" type="button" class="btn btn-sm dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">Quant Quote Market
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">                   
                     <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#stockInfo">Quant Quote Market</a>
+                        <a role="menuitem" tabindex="-1" href="#stockInfo" onclick="showDiffType('Forex')">FOREX</a>
                     </li>
                     <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#stockInfo">Forex</a>
+                        <a role="menuitem" tabindex="-1" href="#stockInfo" onclick="showDiffType('NYSE')">NYSE</a>
                     </li>
                     <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#stockInfo">NYSE</a>
+                        <a role="menuitem" tabindex="-1" href="#stockInfo" onclick="showDiffType('LIFFE')">LIFFE</a>
                     </li>
                     <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#stockInfo">LIFFE Futures Options</a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#stockInfo">NASDAQ</a>
+                        <a role="menuitem" tabindex="-1" href="#stockInfo" onclick="showDiffType('NASDAQ')">NASDAQ</a>
                     </li>
                 </ul>
             </div>
@@ -239,19 +236,25 @@
     }
 	
     window.onload = function () {
-        var a;
-        $.get("/index_msg", function (data, status) {
-            a = data;			
-            console.log(a)
+        $.get("/index_msg", function (data, status) {		
             for (var i = 0; i < 12; i++) {
-//                console.log("h" + (i + 1));
-                document.getElementById("name" + (i + 1)).innerHTML = a[i]["id"];
-                document.getElementById("cont" + (i + 1)).innerHTML = a[i]["name"];
-				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + a[i]["name"];
+                document.getElementById("name" + (i + 1)).innerHTML = data[i]["id"];
+                document.getElementById("cont" + (i + 1)).innerHTML = data[i]["name"];
+				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + data[i]["name"];
             }
         })
 
     };
+	
+	function showDiffType(values){
+		$.get("/" + values, function (data, status) {
+            for (var i = 0; i < 12; i++) {
+                document.getElementById("name" + (i + 1)).innerHTML = data[i]["id"];
+                document.getElementById("cont" + (i + 1)).innerHTML = data[i]["name"];
+				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + data[i]["name"];
+            }
+        })
+	}
 
 </script>
 

@@ -33,14 +33,11 @@ public class NasdaqController {
     Logger log = LoggerFactory.getLogger(NasdaqController.class);
     private String name;
     @Autowired NasdaqRespostory N_repostory;//stock
-
     @Autowired LiffeRepository L_repository;//future
-
     @Autowired ForexRepository F_repository;//foreX
 
     @RequestMapping("/index_msg")// 每天的涨幅最多
     public List<Nasdaq_2013> getIndexMsg() {
-
         List<Nasdaq_2013> res = N_repostory.getOrderName(20130101, 20130102);
         List<List<Nasdaq_2013>> ll = new ArrayList<>(); //两天的价格
 
@@ -51,6 +48,7 @@ public class NasdaqController {
             ll.add(item);
         }
         List<StocksSort<Nasdaq_2013>> ss = new Calculator<Nasdaq_2013>().CalculateIncre(ll);
+
         return ss.stream().skip(ss.size() - 12)
                 .map(stocksSort -> stocksSort.getStock())
 //                .map(item -> {
@@ -125,6 +123,16 @@ public class NasdaqController {
             default:
                 return getMoreInfo(name);
         }
+    }
+
+    @RequestMapping("/top10Msg")
+    public List<Nasdaq_2013> getTop10(){
+        List<Nasdaq_2013> day = N_repostory.getOrderName(20130101, 20130102);
+        List<Nasdaq_2013> week = N_repostory.getOrderName(20130101, 20130107);
+        List<Nasdaq_2013> mon = N_repostory.getOrderName(20130101, 20130201);
+
+        
+        return null;
     }
 
     @RequestMapping("/n_test")
