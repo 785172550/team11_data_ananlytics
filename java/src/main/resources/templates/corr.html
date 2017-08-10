@@ -146,9 +146,9 @@
 			
 			function setOnClick(){
 				$('#tabUI').each(function () {
-					$('li').click(function () {
+					$(this).children().click(function () {
 					  	   window.location.href = './generic.html?stock=' + 
-					  	  $(this).find("span:eq(1)").text() +"NASDAQ";
+					  	  $(this).find("span:eq(1)").text() + "/NASDAQ";
 					})
 				})
 			}
