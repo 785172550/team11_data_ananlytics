@@ -15,7 +15,6 @@ import java.util.List;
 
 /**
  * Created by Kenneth on 2017/8/8.
- *
  */
 
 @RestController
@@ -23,13 +22,6 @@ public class StockController {
 
     @Autowired
     private DemoRepository respostory;
-
-
-//    @RequestMapping("/stock/{name}")
-//    public Object getStockDayInfo(@PathVariable String name) {
-//        respostory.getStockByDateNoTime(201)
-//        return null;
-//    }
 
     @RequestMapping("/stock_10")
     public List<Stock> getTop10() {

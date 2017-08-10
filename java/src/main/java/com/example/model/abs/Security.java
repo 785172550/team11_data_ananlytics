@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.model.abs;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

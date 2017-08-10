@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.example.model.abs.Security;
+
 import javax.persistence.*;
 
 /**
@@ -8,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "forex_2013")
-public class Forex_2013 {
+public class Forex_2013 extends Security {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;

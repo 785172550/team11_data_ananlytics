@@ -1,5 +1,6 @@
 package com.example.dao;
 
+import com.example.model.Forex_2013;
 import com.example.model.Liffe;
 import com.example.model.Nasdaq_2013;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,4 +19,8 @@ public interface LiffeRepository extends JpaRepository<Liffe,Integer> {
 
     @Query(value = "select * from liffe l where l.date between ?1 and ?2",nativeQuery = true)
     List<Liffe> getNasdaqByDate(int start, int end);
+
+    @Query(value = "select * from liffe l where " +
+            "l.date between ?1 and ?2 order by l.ticker",nativeQuery = true)
+    List<Liffe> getOrderName(int start, int end); // 查询几天之间的 外汇排序
 }

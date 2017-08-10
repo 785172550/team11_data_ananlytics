@@ -1,6 +1,6 @@
 package com.example.model;
 
-import org.hibernate.annotations.GeneratorType;
+import com.example.model.abs.Security;
 
 import javax.persistence.*;
 
@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "stock")
-public class Stock extends Security{
+public class Stock extends Security {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

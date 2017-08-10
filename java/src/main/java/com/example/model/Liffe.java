@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.example.model.abs.Security;
+
 import javax.persistence.*;
 
 /**
@@ -7,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "liffe")
-public class Liffe extends Security{
+public class Liffe extends Security {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

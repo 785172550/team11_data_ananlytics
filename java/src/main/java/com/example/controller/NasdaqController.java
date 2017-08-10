@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.dao.ForexRepository;
 import com.example.dao.LiffeRepository;
 import com.example.dao.NasdaqRespostory;
 import com.example.model.*;
@@ -29,21 +30,18 @@ import java.util.stream.Collectors;
 @RestController
 public class NasdaqController {
 
-    private String name;
-
     Logger log = LoggerFactory.getLogger(NasdaqController.class);
+    private String name;
+    @Autowired NasdaqRespostory N_repostory;//stock
 
-    @Autowired
-    NasdaqRespostory respostory;
+    @Autowired LiffeRepository L_repository;//future
 
-    @Autowired
-    LiffeRepository repository1;
+    @Autowired ForexRepository F_repository;//foreX
 
-
-    @RequestMapping("/index_msg")
+    @RequestMapping("/index_msg")// 每天的涨幅最多
     public List<Nasdaq_2013> getIndexMsg() {
 
-        List<Nasdaq_2013> res = respostory.getOrderName(20130101, 20130102);
+        List<Nasdaq_2013> res = N_repostory.getOrderName(20130101, 20130102);
         List<List<Nasdaq_2013>> ll = new ArrayList<>(); //两天的价格
 
         for (int i = 0; i < res.size() - 2; i += 2) {
@@ -55,30 +53,74 @@ public class NasdaqController {
         List<StocksSort<Nasdaq_2013>> ss = new Calculator<Nasdaq_2013>().CalculateIncre(ll);
         return ss.stream().skip(ss.size() - 12)
                 .map(stocksSort -> stocksSort.getStock())
-                .map(item -> {
-                    log.info(item.toString());
-                    return item;
-                }).collect(Collectors.toList());
+//                .map(item -> {
+//                    log.info(item.toString());
+//                    return item;
+//                })
+                .collect(Collectors.toList());
     }
 
-    @RequestMapping("/stock/{name}")
+    @RequestMapping("/index_Fmsg")// 每天的涨幅最多
+    public List<Forex_2013> getForeMsg() {
+        List<Forex_2013> res = F_repository.getOrderName(20130101, 20130102);
+        List<List<Forex_2013>> ll = new ArrayList<>(); //两天的价格
+
+        for (int i = 0; i < res.size() - 2; i += 2) {
+            List<Forex_2013> item = new ArrayList<>();
+            item.add(res.get(i));
+            item.add(res.get(i + 1));
+            ll.add(item);
+        }
+        List<StocksSort<Forex_2013>> ss = new Calculator<Forex_2013>().CalculateIncre(ll);
+        return ss.stream().skip(ss.size() - 12)
+                .map(stocksSort -> stocksSort.getStock())
+//                .map(item -> {
+//                    log.info(item.toString());
+//                    return item;
+//                })
+                .collect(Collectors.toList());
+    }
+
+    @RequestMapping("/index_Lmsg")// 每天的涨幅最多
+    public List<Liffe> getLiffeMsg() {
+        List<Liffe> res = L_repository.getOrderName(20130101, 20130102);
+        List<List<Liffe>> ll = new ArrayList<>(); //两天的价格
+
+        for (int i = 0; i < res.size() - 2; i += 2) {
+            List<Liffe> item = new ArrayList<>();
+            item.add(res.get(i));
+            item.add(res.get(i + 1));
+            ll.add(item);
+        }
+        List<StocksSort<Liffe>> ss = new Calculator<Liffe>().CalculateIncre(ll);
+        return ss.stream().skip(ss.size() - 12)
+                .map(stocksSort -> stocksSort.getStock())
+//                .map(item -> {
+//                    log.info(item.toString());
+//                    return item;
+//                })
+                .collect(Collectors.toList());
+    }
+
+    @RequestMapping("/stock/{name}") // 六个月的K线数据
     public List<Nasdaq_2013> getMoreInfo(@PathVariable String name) {
         this.name = name;
-        return respostory.getNasdaqByDateAndName(20130101, 20130601, name).stream()
-                .map(item -> {
-                    log.info(item.toString());
-                    return item;
-                }).collect(Collectors.toList());
+        return N_repostory.getNasdaqByDateAndName(20130101, 20130601, name).stream()
+//                .map(item -> {
+//                    log.info(item.toString());
+//                    return item;
+//                })
+                .collect(Collectors.toList());
     }
 
-    @RequestMapping("/type/{tag}")
+    @RequestMapping("/type/{tag}")  // 日 周 月 类型数据
     public List<Nasdaq_2013> switchData(@PathVariable String tag) {
         switch (tag) {
             case "CC-W":
-                List<Nasdaq_2013> res = respostory.getNasdaqByDateAndName(20130101, 20130601, name);
+                List<Nasdaq_2013> res = N_repostory.getNasdaqByDateAndName(20130101, 20130601, name);
                 return new Calculator<Nasdaq_2013>().Day2longtem(res, 5);
             case "CC-M":
-                List<Nasdaq_2013> res2 = respostory.getNasdaqByDateAndName(20130101, 20130601, name);
+                List<Nasdaq_2013> res2 = N_repostory.getNasdaqByDateAndName(20130101, 20130601, name);
                 return new Calculator<Nasdaq_2013>().Day2longtem(res2, 30);
             default:
                 return getMoreInfo(name);
@@ -93,5 +135,6 @@ public class NasdaqController {
         stock1.setHigh(555555);
         return stock1;
     }
+
 
 }
