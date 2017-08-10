@@ -24,11 +24,12 @@ import java.util.stream.Collectors;
 
 /**
  * Created by Kenneth on 2017/8/9.
- *
  */
 
 @RestController
 public class NasdaqController {
+
+    private String name;
 
     Logger log = LoggerFactory.getLogger(NasdaqController.class);
 
@@ -42,17 +43,17 @@ public class NasdaqController {
     @RequestMapping("/index_msg")
     public List<Nasdaq_2013> getIndexMsg() {
 
-        List<Nasdaq_2013> res = respostory.getOrderName(20130101,20130102);
+        List<Nasdaq_2013> res = respostory.getOrderName(20130101, 20130102);
         List<List<Nasdaq_2013>> ll = new ArrayList<>(); //两天的价格
 
-        for (int i=0;i<res.size()-2;i+=2){
+        for (int i = 0; i < res.size() - 2; i += 2) {
             List<Nasdaq_2013> item = new ArrayList<>();
             item.add(res.get(i));
-            item.add(res.get(i+1));
+            item.add(res.get(i + 1));
             ll.add(item);
         }
         List<StocksSort<Nasdaq_2013>> ss = new Calculator<Nasdaq_2013>().CalculateIncre(ll);
-        return ss.stream().skip(ss.size()-12)
+        return ss.stream().skip(ss.size() - 12)
                 .map(stocksSort -> stocksSort.getStock())
                 .map(item -> {
                     log.info(item.toString());
@@ -61,12 +62,27 @@ public class NasdaqController {
     }
 
     @RequestMapping("/stock/{name}")
-    public Object getMoreInfo(@PathVariable String name) {
-       return respostory.getNasdaqByDateAndName(20130101,20130301,name).stream()
+    public List<Nasdaq_2013> getMoreInfo(@PathVariable String name) {
+        this.name = name;
+        return respostory.getNasdaqByDateAndName(20130101, 20130601, name).stream()
                 .map(item -> {
                     log.info(item.toString());
                     return item;
                 }).collect(Collectors.toList());
+    }
+
+    @RequestMapping("/type/{tag}")
+    public List<Nasdaq_2013> switchData(@PathVariable String tag) {
+        switch (tag) {
+            case "CC-W":
+                List<Nasdaq_2013> res = respostory.getNasdaqByDateAndName(20130101, 20130601, name);
+                return new Calculator<Nasdaq_2013>().Day2longtem(res, 5);
+            case "CC-M":
+                List<Nasdaq_2013> res2 = respostory.getNasdaqByDateAndName(20130101, 20130601, name);
+                return new Calculator<Nasdaq_2013>().Day2longtem(res2, 30);
+            default:
+                return getMoreInfo(name);
+        }
     }
 
     @RequestMapping("/n_test")

@@ -69,4 +69,30 @@ public class Calculator<T extends Security> {
             return cox/Math.sqrt(var1*var2);
         }else return 0.0;
     }
+
+    public List<T> Day2longtem(List<T> ls, int N){
+        List<T> res = new ArrayList<T>();
+        int flag=0;
+        double high=0,low=0;
+        for(T item : ls){
+            flag++;
+            if(flag == 1){
+                res.add(item);
+                high = item.getHigh();
+                low = item.getLow();
+            }else if(flag == N){
+                flag = 0;
+                res.get(res.size() - 1).setClose(item.getClose());
+                res.get(res.size() - 1).setHigh(high);
+                res.get(res.size() - 1).setLow(low);
+                high=0;
+                low=0;
+            }else{
+                high=item.getHigh() > high ? item.getHigh() : high;
+                low=item.getLow() < low ? item.getLow() : low;
+            }
+
+        }
+        return res;
+    }
 }

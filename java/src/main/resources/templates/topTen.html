@@ -28,13 +28,13 @@
 				<div class="inner">
 					<!-- Search -->
 						<div class="">
-							<div class="input-group">
-								<input id="search" type="text" class="form-control input-lg" onkeydown="JavaScript:if (event.keyCode==13) search();"><span style="background:#5f9ce8" class="input-group-addon btn btn-primary" onclick="search()">搜索</span>
+							<div class="input-group" style="float:right;width:200px;height: 30px;">
+								<input style = "height: 30px;" id="search" type="text" class="form-control input-lg" onkeydown="JavaScript:if (event.keyCode==13) search();"><span style="background:lightgray;font-weight: bold;" class="input-group-addon btn btn-primary" onclick="search()">Search</span>
 							</div>
 						</div>		
 					<!-- Logo -->
 						<a href="./index.html" class="logo">
-							<span class="symbol"><img src="./images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+							<span class="symbol"><img src="./images/logo.svg" alt="" /></span><span class="title">Team 11</span>
 						</a>
 
 					<!-- Nav -->
@@ -63,19 +63,21 @@
 				<div class="inner">
 					<div style="margin: 0 auto;">
 						<h1 class="titleH1 underNone clearfix">
-							<span class="left underNone underLine">STOCK PRODUCTS </span>
+							<span class="left underNone underLine" style="font-size: 30px;"> Top10 Products </span>
 						</h1>
 						<div class="jyTable">
 							<div class="clearfix">
 								<ul class="title title1 left nav nav-tabs">
-									<li class='cur'><a href="#zong" data-toggle="tab">long</a></li>
-									<li><a href="#zong" data-toggle="tab">short</a></li>
-									<li><a href="#zong" data-toggle="tab">ETF</a></li>
+									<li class='cur' style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab">Stock</a></li>
+									<li class='cur2' style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab">Nasdaq</a></li>
+									<li class='cur3' style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab">Liffe</a></li>
+									<li class='cur4' style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab">Forex</a></li>
 								</ul>
-								<ul class="titleexp right" style="padding-top: 8px;">
-									<li>long成交量：378.9</li>
-									<li>short成交量：411.2</li>
-									<li>ETF成交量：189.2</li>
+								<ul class="titleexp right" style="padding-top: 7px;">
+									<li>Stock Volume：</li>
+									<li>Nasdaq Volume：</li>
+									<li>Liffe Volume：</li>
+									<li>Forex Volume：</li>
 								</ul>
 							</div>
 							<div  id = "zong" class='zong tab-pane fade in active' >
@@ -83,13 +85,13 @@
 									<div class="tabCon">
 										<ul>
 											<li class="tabth clearfix">
-												<span style="width: 13%">Symbol</span>
-												<span style="width: 12%">Company Name</span>
-												<span style="width: 10%">Type</span>
-												<span style="width: 16%">Last Update</span>
-												<span style="width: 16%">Alter Price</span>
-												<span style="width: 16%">Current Price</span>
-												<span style="width: 15%">Chart</span>
+												<span style="width: 13%;font-weight:bold;">Ranking</span>
+												<span style="width: 17%;font-weight:bold;">Company Name</span>
+												<span style="width: 24%;font-weight:bold;">Date</span>
+												<span style="width: 18%;font-weight:bold;">Low Price</span>
+												<span style="width: 18%;font-weight:bold;">High Price</span>
+												<span style="width: 18%;font-weight:bold;">Increase</span>
+												
 											</li>
 										</ul>
 										<div id="s1">
