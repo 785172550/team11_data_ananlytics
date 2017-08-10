@@ -52,9 +52,7 @@
 				<ul>
 					<li><a href="./index.html">Home</a></li>
 					<li><a href="./topTen.html?name=topten">The Top10</a></li>
-					<li><a href="./generic.html">Tempus etiam</a></li>
-					<li><a href="./generic.html">Consequat dolor</a></li>
-					<li><a href="./elements.html">Elements</a></li>
+					<li><a href="./corr.html">corr</a></li>
 				</ul>
 			</nav>
 
@@ -105,8 +103,8 @@
 		
 		<script type="text/javascript">
 			window.onload = function (){
-				$.get("/topten/", function (data, status) {
-					/*data = [{
+				//$.get("/topten/", function (data, status) {
+					data = [{
 						"Name":899,
 						"low":4356,
 						"high": 6987,
@@ -121,9 +119,9 @@
 						"increase":849389,
 						"date":'2013/3/4'
 					}
-					];*/					
+					];					
 					createUL(data, 0, 10);						
-				};				
+				//});				
 			}
 			
 			//创建表格
@@ -141,10 +139,14 @@
 					li.className = "tabtr clearfix";
 					li.appendChild(span1);
 					span1.style = "width: 13%;font-weight:bold;";
-					span1.innerHTML = i+1;						
+					span1.innerHTML = i+1;	
 					li.appendChild(span2);
 					span2.style = "width: 19%;font-weight:bold;";
 					span2.innerHTML = data[i]["Name"];
+					var name = data[i]["Name"];
+					span2.onclick = function(){
+						window.location.href = './generic.html?stock=' + name;
+					};
 					li.appendChild(span3);
 					span3.style = "width: 17%;font-weight:bold;";
 					span3.innerHTML = data[i]["date"];
@@ -175,7 +177,7 @@
 					else if("month" == type){
 						createUL(data, 20, 30);
 					}			
-				};
+				});
 			}
 			
 			//搜索框
