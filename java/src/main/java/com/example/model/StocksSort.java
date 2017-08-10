@@ -1,11 +1,12 @@
 package com.example.model;
 
+import com.example.model.abs.Security;
 import com.example.utils.DemoUtils;
 
 /**
  * Created by Kenneth on 2017/8/9.
  */
-public class StocksSort<T> implements Comparable<StocksSort>{
+public class StocksSort<T extends Security> implements Comparable<StocksSort>{
     private Double value;
     private T stock;
 

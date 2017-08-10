@@ -31,16 +31,15 @@ public class Calculator<T extends Security> {
         return (tmp.get(0).getClose() - tmp.get(1).getClose())/tmp.get(1).getClose();
     }
 
-    public List<StocksSort> CalculateCorr(List<List<Stock>> ls){
+    public List<StocksSort<T>> CalculateCorr(List<List<T>> ls){
         List<Double> mylist = ls.get(0).stream().map(tmp -> tmp.getClose()).collect(Collectors.toList());
 
-        List<StocksSort> res = ls.stream()
+        List<StocksSort<T>> res = ls.stream()
                 .map(item ->
-                        new StocksSort(
+                        new StocksSort<T>(
                                 ClaculateVAR(mylist, item.stream().map(x -> x.getClose())
                                         .collect(Collectors.toList())), item.get(0)))
                 .collect(Collectors.toList());
-
         Collections.sort(res);
         return res;
 

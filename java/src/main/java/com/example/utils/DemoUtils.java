@@ -1,6 +1,8 @@
 package com.example.utils;
 
+import com.example.model.Nasdaq_2013;
 import com.example.model.Stock;
+import com.example.model.abs.Security;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -28,4 +30,21 @@ public class DemoUtils {
         double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
         return f1;
     }
+
+    public static <T extends Security>List<List<T>> listUtil(List<T> ls){
+        List<List<T>> ll = new ArrayList<>(); //两天的价格
+        for (int i = 0; i < ls.size() - 2; i += 2) {
+            List<T> item = new ArrayList<>();
+            if (ls.get(i).getName().equals(ls.get(i + 1).getName())) {
+                item.add(ls.get(i));
+                item.add(ls.get(i + 1));
+                ll.add(item);
+            } else {
+                i--;
+            }
+        }
+        return ll;
+    }
+
+//    public static <T>List<T> getList()
 }

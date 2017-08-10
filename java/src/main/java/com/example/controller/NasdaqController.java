@@ -41,22 +41,12 @@ public class NasdaqController {
 
     @RequestMapping("/index_msg")// 每天的涨幅最多
     public List<Nasdaq_2013> getIndexMsg() {
-        List<Nasdaq_2013> res = N_repostory.getOrderName(20130101, 20130102);
-        List<List<Nasdaq_2013>> ll = new ArrayList<>(); //两天的价格
+        List<Nasdaq_2013> res = N_repostory.getOrderName(20130305, 20130306);
 
-        for (int i = 0; i < res.size() - 2; i += 2) {
-            List<Nasdaq_2013> item = new ArrayList<>();
-            if (res.get(i).getName().equals(res.get(i + 1).getName())) {
-                item.add(res.get(i));
-                item.add(res.get(i + 1));
-                ll.add(item);
-            } else {
-                i--;
-            }
-        }
+        List<List<Nasdaq_2013>> ll = DemoUtils.listUtil(res);
         List<StocksSort<Nasdaq_2013>> ss = new Calculator<Nasdaq_2013>().CalculateIncre(ll);
 
-        return ss.stream().skip(ss.size() - 10)
+        List<Nasdaq_2013> result = ss.stream().skip(ss.size() - 5)
                 .map(stocksSort -> {
                     Nasdaq_2013 rs = stocksSort.getStock();
                     rs.setHige(stocksSort.getValue() * 100);
@@ -67,6 +57,15 @@ public class NasdaqController {
 //                    return item;
 //                })
                 .collect(Collectors.toList());
+
+        result.addAll(ss.stream().limit(5)
+                .map(stocksSort -> {
+                    Nasdaq_2013 rs = stocksSort.getStock();
+                    rs.setHige(stocksSort.getValue() * 100);
+                    return rs;
+                })
+                .collect(Collectors.toList()));
+        return result;
     }
 
     @RequestMapping("/index_Fmsg")// 每天的涨幅最多
@@ -130,7 +129,7 @@ public class NasdaqController {
                 return new Calculator<Nasdaq_2013>().Day2longtem(res, 5);
             case "CC-M":
                 List<Nasdaq_2013> res2 = N_repostory.getNasdaqByDateAndName(20130101, 20130601, name);
-                return new Calculator<Nasdaq_2013>().Day2longtem(res2, 30);
+                return new Calculator<Nasdaq_2013>().Day2longtem(res2, 23);
             default:
                 return getMoreInfo(name);
         }
@@ -138,15 +137,66 @@ public class NasdaqController {
 
     @RequestMapping("/top10Msg")
     public List<Nasdaq_2013> getTop10() {
-        List<Nasdaq_2013> day = N_repostory.getOrderName(20130101, 20130102);
-        List<Nasdaq_2013> week = N_repostory.getOrderName(20130101, 20130107);
-        List<Nasdaq_2013> mon = N_repostory.getOrderName(20130101, 20130201);
-
+        List<Nasdaq_2013> res = new ArrayList<>();
         Calculator<Nasdaq_2013> calculator = new Calculator<>();
-        calculator.Day2longtem(week, 5);
 
-        calculator.Day2longtem(mon, 24);
-        return null;
+        List<Nasdaq_2013> day = N_repostory.getOrderName(20130101, 20130102);
+//        List<Nasdaq_2013> week = N_repostory.getOrderName(20130102, 201301003);
+//        List<Nasdaq_2013> mon = N_repostory.getOrderName(20130101, 20130201);
+
+        List<List<Nasdaq_2013>> day1 = DemoUtils.listUtil(day);
+        List<StocksSort<Nasdaq_2013>> day2 = calculator.CalculateIncre(day1);
+        res.addAll(day2.stream().skip(day2.size() - 30)
+                .map(stocksSort -> {
+                    Nasdaq_2013 rs = stocksSort.getStock();
+                    rs.setHige(stocksSort.getValue() * 100);
+                    return rs;
+                }).collect(Collectors.toList()));
+//        List<Nasdaq_2013> week2 = calculator.Day2longtem(week, 5);
+//        List<Nasdaq_2013> mon2 = calculator.Day2longtem(mon, 24);
+        return res;
+    }
+
+    @RequestMapping("/CORRMsg")
+    public List<Nasdaq_2013> getCORR(){
+        List<Nasdaq_2013> res = N_repostory.getOrderName(20130101,20130115);
+        List<List<Nasdaq_2013>> ll = new ArrayList<>();
+        String name = "";
+        for (int i = 0; i < res.size() - 10; i += 10) {
+            List<Nasdaq_2013> item = new ArrayList<>();
+            name = res.get(i).getName();
+            for (int j = 0; j < 10; j++){
+                if(name.equals(res.get(j).getName()))
+                    item.add(res.get(j));
+            }
+            if(item.size() == 10){
+                ll.add(item);
+            }
+        }
+
+        List<StocksSort<Nasdaq_2013>> ss = new Calculator<Nasdaq_2013>().CalculateCorr(ll);
+
+        List<Nasdaq_2013> result = ss.stream().skip(ss.size() - 5)
+                .map(stocksSort -> {
+                    Nasdaq_2013 rs = stocksSort.getStock();
+                    rs.setHige(stocksSort.getValue());
+                    return rs;
+                })
+//                .map(item -> {
+//                    log.info(item.toString());
+//                    return item;
+//                })
+                .collect(Collectors.toList());
+
+
+        result.addAll(ss.stream().limit(5)
+                .map(stocksSort -> {
+                    Nasdaq_2013 rs = stocksSort.getStock();
+                    rs.setHige(stocksSort.getValue());
+                    return rs;
+                })
+                .collect(Collectors.toList()));
+        return result;
     }
 
     @RequestMapping("/n_test")
