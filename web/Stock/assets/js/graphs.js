@@ -19,7 +19,7 @@ function showCCD(rawData){
         legend: {
             bottom: 10,
             left: 'center',
-            data: ['Dow-Jones index', 'MA5', 'MA10', 'MA20', 'MA30']
+            data: ['candlestick', 'MA5', 'MA10', 'MA20', 'MA30']
         },
         tooltip: {
             trigger: 'axis',
@@ -165,7 +165,7 @@ function showCCD(rawData){
         ],
         series: [
             {
-                name: 'Dow-Jones index',
+                name: 'candlestick',
                 type: 'candlestick',
                 data: data.values,
 				barMinHeight: '-100%',
@@ -245,7 +245,7 @@ function showCC(rawData){
         legend: {
             bottom: 10,
             left: 'center',
-            data: ['Dow-Jones index', 'weekly', 'monthly', 'yearly']
+            data: ['candlestick', 'weekly', 'monthly', 'yearly']
         },
         tooltip: {
             trigger: 'axis',
@@ -391,7 +391,7 @@ function showCC(rawData){
         ],
         series: [
             {
-                name: 'Dow-Jones index',
+                name: 'candlestick',
                 type: 'candlestick',
                 data: data.values,
                 itemStyle: {
@@ -434,7 +434,7 @@ function showMACD(rawData){
         legend: {
             bottom: 10,
             left: 'center',
-            data: ['Dow-Jones index', 'MA5', 'MA10', 'MA20', 'MA30']
+            data: ['candlestick', 'MA5', 'MA10', 'MA20', 'MA30']
         },
         tooltip: {
             trigger: 'axis',
@@ -478,17 +478,17 @@ function showMACD(rawData){
                 colorAlpha: 0.1
             }
         },
-        visualMap: {
-            seriesIndex: 5,
-            dimension: 2,
-            pieces: [{
-                value: 1,
-                color: '#2f4554'
-            }, {
-                value: -1,
-                color: '#c23531'
-            }]
-        },
+        // visualMap: {
+        //     seriesIndex: 5,
+        //     dimension: 2,
+        //     pieces: [{
+        //         value: 1,
+        //         color: '#2f4554'
+        //     }, {
+        //         value: -1,
+        //         color: '#c23531'
+        //     }]
+        // },
         grid: [
             {
                 left: '10%',
@@ -580,7 +580,7 @@ function showMACD(rawData){
         ],
         series: [
             {
-                name: 'Dow-Jones index',
+                name: 'candlestick',
                 type: 'candlestick',
                 data: data.values,
 				barMinHeight: '-100%',
@@ -646,6 +646,7 @@ function showMACD(rawData){
                 xAxisIndex: 1,
                 yAxisIndex: 1,
                 data: calculateBAR(calculateDIF(data, calculateEMA(data)), calculateDEA(calculateDIF(data, calculateEMA(data))))
+            },
 			{
                 name: 'DIF',
                 type: 'line',
@@ -691,7 +692,7 @@ function showBOLL(rawData){
         legend: {
             bottom: 10,
             left: 'center',
-            data: ['Dow-Jones index', 'UP', 'MB', 'DN']
+            data: ['candlestick', 'UP', 'MB', 'DN']
         },
         tooltip: {
             trigger: 'axis',
@@ -837,7 +838,7 @@ function showBOLL(rawData){
         ],
         series: [
             {
-                name: 'Dow-Jones index',
+                name: 'candlestick',
                 type: 'candlestick',
                 data: data.values,
 				barMinHeight: '-100%',
@@ -863,7 +864,7 @@ function showBOLL(rawData){
             {
                 name: 'UP',
                 type: 'line',
-                data: calculateBOLL(20,calculateMD(20,MA,data),data).UP,
+                data: calculateBOLL(20,calculateMD(20,calculateMA(20, data),data),data).UP,
                 smooth: true,
                 lineStyle: {
                     normal: {opacity: 0.5}
@@ -872,7 +873,7 @@ function showBOLL(rawData){
             {
                 name: 'MB',
                 type: 'line',
-                data: calculateBOLL(20,calculateMD(20,MA,data),data).MB,
+                data: calculateBOLL(20,calculateMD(20,calculateMA(20, data),data),data).MB,
                 smooth: true,
                 lineStyle: {
                     normal: {opacity: 0.5}
@@ -881,7 +882,7 @@ function showBOLL(rawData){
             {
                 name: 'DN',
                 type: 'line',
-                data: calculateBOLL(20,calculateMD(20,MA,data),data).DN,
+                data: calculateBOLL(20,calculateMD(20,calculateMA(20, data),data),data).DN,
                 smooth: true,
                 lineStyle: {
                     normal: {opacity: 0.5}
