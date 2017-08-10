@@ -23,4 +23,8 @@ public interface LiffeRepository extends JpaRepository<Liffe,Integer> {
     @Query(value = "select * from liffe l where " +
             "l.date between ?1 and ?2 order by l.ticker",nativeQuery = true)
     List<Liffe> getOrderName(int start, int end); // 查询几天之间的 外汇排序
+
+    @Query(value = "select * from liffe n where " +
+            "n.date between ?1 and ?2 and n.ticker = ?3",nativeQuery = true)
+    List<Nasdaq_2013> getNasdaqByDateAndName(int start,int end,String name); //查询某只股票一段时间信息
 }

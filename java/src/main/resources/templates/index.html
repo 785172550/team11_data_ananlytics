@@ -247,7 +247,7 @@
                 document.getElementById("name" + (i + 1)).innerHTML = "No. " + data[i]["id"];
                 document.getElementById("cont" + (i + 1)).innerHTML = "name: "+data[i]["name"] 
                 + "<br>change: " + data[i]["hige"] + "%";
-				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + data[i]["name"];
+				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + data[i]["name"] + "/NASDAQ";
             }
         })
 
@@ -256,9 +256,11 @@
 	function showDiffType(values){
 		$.get("/" + values, function (data, status) {
             for (var i = 0; i < 10; i++) {
-                document.getElementById("name" + (i + 1)).innerHTML = data[i]["id"];
-                document.getElementById("cont" + (i + 1)).innerHTML = data[i]["name"];
-				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + data[i]["name"];
+                console.log(data)
+                document.getElementById("name" + (i + 1)).innerHTML = "No. " + data[i]["id"];
+                document.getElementById("cont" + (i + 1)).innerHTML = "name: " + data[i]["name"]
+                + "<br>change: " + data[i]["hige"] + "%";
+				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + data[i]["name"] + "/" + values;
             }
         })
 	}

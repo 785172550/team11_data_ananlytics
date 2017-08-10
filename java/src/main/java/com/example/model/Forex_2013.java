@@ -27,6 +27,7 @@ public class Forex_2013 extends Security {
     @Column(name = "vol")
     double volume;
 
+
     public Forex_2013() {
     }
 

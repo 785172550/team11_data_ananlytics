@@ -22,6 +22,15 @@ public abstract class Security {
     protected double high;
     protected double low;
     protected double volume;
+    protected double hige;
+
+    public double getHige() {
+        return hige;
+    }
+
+    public void setHige(double hige) {
+        this.hige = hige;
+    }
 
     public int getId() {
         return id;
