@@ -4,6 +4,7 @@ import com.example.dao.ForexRepository;
 import com.example.dao.LiffeRepository;
 import com.example.dao.NasdaqRespostory;
 import com.example.model.*;
+import com.example.model.abs.Security;
 import com.example.service.Calculator;
 import com.example.utils.DemoUtils;
 import com.fasterxml.jackson.core.JsonParser;
@@ -32,6 +33,7 @@ public class NasdaqController {
 
     Logger log = LoggerFactory.getLogger(NasdaqController.class);
     private String name;
+    private String mType;
     @Autowired
     NasdaqRespostory N_repostory;//stock
     @Autowired
@@ -52,10 +54,10 @@ public class NasdaqController {
                     rs.setHige(stocksSort.getValue() * 100);
                     return rs;
                 })
-//                .map(item -> {
-//                    log.info(item.toString());
-//                    return item;
-//                })
+                .map(item -> {
+                    log.info(item.toString());
+                    return item;
+                })
                 .collect(Collectors.toList());
 
         result.addAll(ss.stream().limit(5)
@@ -68,57 +70,85 @@ public class NasdaqController {
         return result;
     }
 
-    @RequestMapping("/index_Fmsg")// 每天的涨幅最多
+    @RequestMapping("/Forex")// 每天的涨幅最多
     public List<Forex_2013> getForeMsg() {
         List<Forex_2013> res = F_repository.getOrderName(20130101, 20130102);
-        List<List<Forex_2013>> ll = new ArrayList<>(); //两天的价格
 
-        for (int i = 0; i < res.size() - 2; i += 2) {
-            List<Forex_2013> item = new ArrayList<>();
-            item.add(res.get(i));
-            item.add(res.get(i + 1));
-            ll.add(item);
-        }
+        List<List<Forex_2013>> ll = DemoUtils.listUtil(res);
         List<StocksSort<Forex_2013>> ss = new Calculator<Forex_2013>().CalculateIncre(ll);
-        return ss.stream().skip(ss.size() - 12)
-                .map(stocksSort -> stocksSort.getStock())
-//                .map(item -> {
-//                    log.info(item.toString());
-//                    return item;
-//                })
+        List<Forex_2013> result = ss.stream().skip(ss.size() - 5)
+                .map(stocksSort -> {
+                    Forex_2013 rs = stocksSort.getStock();
+                    rs.setHige(stocksSort.getValue() * 100);
+                    return rs;
+                })
+                .map(item -> {
+                    log.info(item.toString());
+                    return item;
+                })
                 .collect(Collectors.toList());
+
+        result.addAll(ss.stream().limit(5)
+                .map(stocksSort -> {
+                    Forex_2013 rs = stocksSort.getStock();
+                    rs.setHige(stocksSort.getValue() * 100);
+                    return rs;
+                })
+                .collect(Collectors.toList()));
+        return result;
     }
 
-    @RequestMapping("/index_Lmsg")// 每天的涨幅最多
+    @RequestMapping("/LIFFE")// 每天的涨幅最多
     public List<Liffe> getLiffeMsg() {
         List<Liffe> res = L_repository.getOrderName(20130101, 20130102);
-        List<List<Liffe>> ll = new ArrayList<>(); //两天的价格
 
-        for (int i = 0; i < res.size() - 2; i += 2) {
-            List<Liffe> item = new ArrayList<>();
-            item.add(res.get(i));
-            item.add(res.get(i + 1));
-            ll.add(item);
-        }
+        List<List<Liffe>> ll = DemoUtils.listUtil(res);
         List<StocksSort<Liffe>> ss = new Calculator<Liffe>().CalculateIncre(ll);
-        return ss.stream().skip(ss.size() - 12)
-                .map(stocksSort -> stocksSort.getStock())
-//                .map(item -> {
-//                    log.info(item.toString());
-//                    return item;
-//                })
+        List<Liffe> result = ss.stream().skip(ss.size() - 5)
+                .map(stocksSort -> {
+                    Liffe rs = stocksSort.getStock();
+                    rs.setHige(stocksSort.getValue() * 100);
+                    return rs;
+                })
+                .map(item -> {
+                    log.info(item.toString());
+                    return item;
+                })
                 .collect(Collectors.toList());
+
+        result.addAll(ss.stream().limit(5)
+                .map(stocksSort -> {
+                    Liffe rs = stocksSort.getStock();
+                    rs.setHige(stocksSort.getValue() * 100);
+                    return rs;
+                })
+                .collect(Collectors.toList()));
+        return result;
     }
 
-    @RequestMapping("/stock/{name}") // 六个月的K线数据
-    public List<Nasdaq_2013> getMoreInfo(@PathVariable String name) {
+    @RequestMapping("/stock/{name}/{tpye}") // 六个月的K线数据
+    public List<Security> getMoreInfo(@PathVariable String name,
+                                      @PathVariable String type) {
         this.name = name;
-        return N_repostory.getNasdaqByDateAndName(20130101, 20130601, name).stream()
+        switch (type){
+            case "NASDAQ":
+                return N_repostory.getNasdaqByDateAndName(20130101, 20130601, name).stream()
+                    .collect(Collectors.toList());
+            case "Forex":
+                return F_repository.getNasdaqByDateAndName(20130101, 20130601, name).stream()
+                        .collect(Collectors.toList());
+            case "LIFFE":
+                return L_repository.getNasdaqByDateAndName(20130101, 20130601, name).stream()
 //                .map(item -> {
 //                    log.info(item.toString());
 //                    return item;
 //                })
-                .collect(Collectors.toList());
+                  .collect(Collectors.toList());
+            default:
+                  return F_repository.getNasdaqByDateAndName(20130101, 20130601, name).stream()
+                    .collect(Collectors.toList());
+        }
+
     }
 
     @RequestMapping("/type/{tag}")  // 日 周 月 类型数据
@@ -131,7 +161,7 @@ public class NasdaqController {
                 List<Nasdaq_2013> res2 = N_repostory.getNasdaqByDateAndName(20130101, 20130601, name);
                 return new Calculator<Nasdaq_2013>().Day2longtem(res2, 23);
             default:
-                return getMoreInfo(name);
+                return N_repostory.getNasdaqByDateAndName(20130101, 20130601, name);
         }
     }
 
@@ -159,22 +189,23 @@ public class NasdaqController {
 
     @RequestMapping("/CORRMsg")
     public List<Nasdaq_2013> getCORR(){
-        List<Nasdaq_2013> res = N_repostory.getOrderName(20130101,20130115);
-        List<List<Nasdaq_2013>> ll = new ArrayList<>();
-        String name = "";
-        for (int i = 0; i < res.size() - 10; i += 10) {
-            List<Nasdaq_2013> item = new ArrayList<>();
-            name = res.get(i).getName();
-            for (int j = 0; j < 10; j++){
-                if(name.equals(res.get(j).getName()))
-                    item.add(res.get(j));
-            }
-            if(item.size() == 10){
-                ll.add(item);
-            }
-        }
+        List<Nasdaq_2013> res = N_repostory.getOrderName(20130121,20130122);
+//        List<List<Nasdaq_2013>> ll = new ArrayList<>();
+//        String name = "";
+//        for (int i = 0; i < res.size() - 10; i += 10) {
+//            List<Nasdaq_2013> item = new ArrayList<>();
+//            name = res.get(i).getName();
+//            for (int j = i; j < 10; j++){
+//                if(name.equals(res.get(j).getName()))
+//                    item.add(res.get(j));
+//            }
+//            if(item.size() == 10){
+//                ll.add(item);
+//            }
+//        }
+        List<List<Nasdaq_2013>> res1 = DemoUtils.listUtil(res);
 
-        List<StocksSort<Nasdaq_2013>> ss = new Calculator<Nasdaq_2013>().CalculateCorr(ll);
+        List<StocksSort<Nasdaq_2013>> ss = new Calculator<Nasdaq_2013>().CalculateIncre(res1);
 
         List<Nasdaq_2013> result = ss.stream().skip(ss.size() - 5)
                 .map(stocksSort -> {
@@ -182,10 +213,10 @@ public class NasdaqController {
                     rs.setHige(stocksSort.getValue());
                     return rs;
                 })
-//                .map(item -> {
-//                    log.info(item.toString());
-//                    return item;
-//                })
+                .map(item -> {
+                    log.info(item.toString());
+                    return item;
+                })
                 .collect(Collectors.toList());
 
 

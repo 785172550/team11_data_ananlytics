@@ -61,16 +61,10 @@
 				<div class="inner">
 					<div style="margin: 0 auto;">
 						<h1 class="titleH1 underNone clearfix">
-							<span class="left underNone underLine" style="font-size: 30px;"> Top10 Products </span>
+							<span class="left underNone underLine" style="font-size: 30px;"> Correlation TOP 10 </span>
 						</h1>
 						<div class="jyTable">
-							<div class="clearfix">
-								<ul class="title title1 left nav nav-tabs">
-									<li style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab" onclick="topTenOf('day')">NASDAQ</a></li>
-									<li style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab" onclick="topTenOf('week')">week</a></li>
-									<li style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab" onclick="topTenOf('month')">month</a></li>
-								</ul>								
-							</div><br />
+							
 							<div  id = "zong" class='zong tab-pane fade in active' >
 								<div class="list list1">
 									<div class="tabCon">
@@ -81,7 +75,7 @@
 												<span style="width: 17%;font-weight:bold;">Date</span>
 												<span style="width: 17%;font-weight:bold;">Low Price</span>
 												<span style="width: 17%;font-weight:bold;">High Price</span>
-												<span style="width: 17%;font-weight:bold;">Increase</span>												
+												<span style="width: 17%;font-weight:bold;">Coefficient</span>												
 											</li>
 										</ul>
 										<div id="s1">
@@ -102,12 +96,11 @@
 		</div>
 		
 		<script type="text/javascript">
-			var r ;
 			window.onload = function (){
-				$.get("/top10Msg", function (data, status) {
-					r = data
+				$.get("/CORRMsg", function (data, status) {		
+					data[0]['hige'] = 1;
 					createUL(data, 0, 10);						
-				});
+				});				
 			}
 			
 			//创建表格
@@ -125,11 +118,10 @@
 					li.className = "tabtr clearfix";
 					li.appendChild(span1);
 					span1.style = "width: 13%;font-weight:bold;";
-					span1.innerHTML = (i%10)+1;
+					span1.innerHTML = i+1;						
 					li.appendChild(span2);
 					span2.style = "width: 19%;font-weight:bold;";
 					span2.innerHTML = data[i]["name"];
-					span2.name = data[i]["name"];
 					var name = data[i]["name"];
 					// span2.onclick = function(){
 					// 	window.location.href = './generic.html?stock=' + name;
@@ -145,27 +137,11 @@
 					span5.innerHTML = data[i]["high"];
 					li.appendChild(span6);
 					span6.style = "width: 17%;font-weight:bold;";
-					span6.innerHTML = data[i]["hige"] + "%";
+					span6.innerHTML = data[i]["hige"];
 					ul.appendChild(li);
 				}
-				// document.getElementById('s1').appendChild(ul);
+				// document.getElementById('test').appendChild(ul);
 				setOnClick();
-			}
-			
-			//检索不同类型的topten
-			function topTenOf(type){
-				$.get("/top10Msg", function (data, status) {
-					$('#tabUI li').remove();
-					if("day" == type){
-						createUL(r, 0, 10);	
-					}
-					else if("week" == type){
-						createUL(r, 10, 20);
-					}
-					else if("month" == type){
-						createUL(data, 20, 30);
-					}			
-				});
 			}
 			
 			function setOnClick(){

@@ -25,8 +25,8 @@ public class PageController {
         return "topTen";
     }
 
-    @RequestMapping("/CORR")
+    @RequestMapping("/corr")
     public String getCORR(){
-        return "";
+        return "CORR";
     }
 }

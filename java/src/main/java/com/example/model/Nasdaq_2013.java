@@ -1,6 +1,7 @@
 package com.example.model;
 
 import com.example.model.abs.Security;
+import com.example.utils.DemoUtils;
 
 import javax.persistence.*;
 
@@ -126,7 +127,7 @@ public class Nasdaq_2013 extends Security {
     }
 
     public double getHige() {
-        return hige;
+       return DemoUtils.get2Double(hige);
     }
 
     public void setHige(double hige) {
