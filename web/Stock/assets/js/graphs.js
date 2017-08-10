@@ -1,7 +1,8 @@
 window.onload = function () {
 			var thisURL = document.URL;    
 			var getval =thisURL.split('?')[1];  
-			var showval= getval.split("=")[1];  
+			var showval= getval.split("=")[1];
+			document.getElementById("stockName").innerHTML = showval;
             $.post("/stock/" + showval, function (data,status) {
 				showCCD(data);
             });

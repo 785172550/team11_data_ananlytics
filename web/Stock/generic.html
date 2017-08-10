@@ -47,16 +47,14 @@
         <ul>
             <li><a href="./index.html">Home</a></li>
             <li><a href="./topTen.html?name=topten">The Top10</a></li>
-            <li><a href="./generic.html">Tempus etiam</a></li>
-            <li><a href="./generic.html">Consequat dolor</a></li>
-            <li><a href="./elements.html">Elements</a></li>
+            <li><a href="./corr.html">corr</a></li>
         </ul>
     </nav>
 
     <!-- Main -->
     <div id="main">
         <div class="inner">
-            <h1>Generic Page</h1>
+            <h1 id="stockName"></h1>
             <div style="width: 59em; height: 400px;">
                 <div id="show_Stock" style="width:57em; height:600px; float:left"></div>
                 <div style="width:2em; height:400px; float: right;">
@@ -86,7 +84,6 @@
 <script type="text/javascript">
     function search() {
         var searchValue = document.getElementById("search").value;
-        //		console.log(searchValue);
         window.location.href = "./generic.html?stock=" + searchValue;
     }
 </script>
