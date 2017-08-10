@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.example.utils.DemoUtils;
+
 /**
  * Created by Kenneth on 2017/8/9.
  */
@@ -16,7 +18,7 @@ public class StocksSort<T> implements Comparable<StocksSort>{
     }
 
     public Double getValue() {
-        return value;
+        return DemoUtils.get2Double(value);
     }
 
     public void setValue(Double value) {

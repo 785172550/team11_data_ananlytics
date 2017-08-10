@@ -37,6 +37,7 @@ public class ControllerTest {
 
     @Autowired
     private StockController controller;
+
     @Autowired
     private DemoRepository repository;
 

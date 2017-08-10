@@ -21,9 +21,7 @@ public class Calculator<T extends Security> {
 
     public List<StocksSort<T>> CalculateIncre(List<List<T>> ls){
         List<StocksSort<T>> res = new ArrayList<>();
-
-        ls.forEach(item ->
-                res.add(new StocksSort(CalculateUpValue(item),item.get(0))));
+        ls.forEach(item -> res.add(new StocksSort(CalculateUpValue(item),item.get(0))));
         Collections.sort(res);
 
         return res;

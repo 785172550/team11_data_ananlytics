@@ -32,9 +32,12 @@ public class NasdaqController {
 
     Logger log = LoggerFactory.getLogger(NasdaqController.class);
     private String name;
-    @Autowired NasdaqRespostory N_repostory;//stock
-    @Autowired LiffeRepository L_repository;//future
-    @Autowired ForexRepository F_repository;//foreX
+    @Autowired
+    NasdaqRespostory N_repostory;//stock
+    @Autowired
+    LiffeRepository L_repository;//future
+    @Autowired
+    ForexRepository F_repository;//foreX
 
     @RequestMapping("/index_msg")// 每天的涨幅最多
     public List<Nasdaq_2013> getIndexMsg() {
@@ -43,14 +46,22 @@ public class NasdaqController {
 
         for (int i = 0; i < res.size() - 2; i += 2) {
             List<Nasdaq_2013> item = new ArrayList<>();
-            item.add(res.get(i));
-            item.add(res.get(i + 1));
-            ll.add(item);
+            if (res.get(i).getName().equals(res.get(i + 1).getName())) {
+                item.add(res.get(i));
+                item.add(res.get(i + 1));
+                ll.add(item);
+            } else {
+                i--;
+            }
         }
         List<StocksSort<Nasdaq_2013>> ss = new Calculator<Nasdaq_2013>().CalculateIncre(ll);
 
-        return ss.stream().skip(ss.size() - 12)
-                .map(stocksSort -> stocksSort.getStock())
+        return ss.stream().skip(ss.size() - 10)
+                .map(stocksSort -> {
+                    Nasdaq_2013 rs = stocksSort.getStock();
+                    rs.setHige(stocksSort.getValue() * 100);
+                    return rs;
+                })
 //                .map(item -> {
 //                    log.info(item.toString());
 //                    return item;
@@ -126,12 +137,15 @@ public class NasdaqController {
     }
 
     @RequestMapping("/top10Msg")
-    public List<Nasdaq_2013> getTop10(){
+    public List<Nasdaq_2013> getTop10() {
         List<Nasdaq_2013> day = N_repostory.getOrderName(20130101, 20130102);
         List<Nasdaq_2013> week = N_repostory.getOrderName(20130101, 20130107);
         List<Nasdaq_2013> mon = N_repostory.getOrderName(20130101, 20130201);
 
-        
+        Calculator<Nasdaq_2013> calculator = new Calculator<>();
+        calculator.Day2longtem(week, 5);
+
+        calculator.Day2longtem(mon, 24);
         return null;
     }
 

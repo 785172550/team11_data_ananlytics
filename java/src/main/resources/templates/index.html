@@ -31,7 +31,6 @@
 				<a href="./index.html" class="logo">
 					<span class="symbol"><img src="./images/logo.svg" alt="" /></span><span class="title">Team 11</span>
 				</a>
-
 			<!-- Nav -->
 				<nav>
 					<ul>
@@ -52,15 +51,13 @@
             <li><a href="./elements.html">Elements</a></li>
         </ul>
     </nav>
-
+  
     <!-- Main -->
     <div id="main">
         <div class="inner">
             <header>
-                <h1>This is Phantom, a free, fully responsive site<br/>
-                    template designed by <a href="http://html5up.net">HTML5 UP</a>.</h1>
-                <p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat
-                    veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+                <h1>World Ultimate Data analytics</h1>
+                <h1>Top10 today</h1>
             </header>
             <div class="dropdown">
                 <button style="border:none" type="button" class="btn btn-sm dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">Quant Quote Market
@@ -81,6 +78,8 @@
                     </li>
                 </ul>
             </div>
+            <br><br>
+            <h1>Increase Top5</h1>
             <section id="stockInfo" class="tiles">
                 <article id="stock1" class="style1">
 									<span class="image">
@@ -137,6 +136,13 @@
                         </div>
                     </a>
                 </article>
+                </section>
+
+<!--             <header> -->
+                <br><br>
+                <h1>Decrease Top5</h1>
+    <!--         </header>  -->
+                <section id="stockInfo" class="tiles">
                 <article class="style6">
 									<span class="image">
 										<img src="./images/pic06.jpg" alt=""/>
@@ -192,7 +198,7 @@
                         </div>
                     </a>
                 </article>
-                <article class="style6">
+<!--                 <article class="style6">
 									<span class="image">
 										<img src="./images/pic11.jpg" alt=""/>
 									</span>
@@ -213,7 +219,7 @@
                             <p></p>
                         </div>
                     </a>
-                </article>
+                </article> -->
             </section>
         </div>
     </div>
@@ -237,9 +243,10 @@
 	
     window.onload = function () {
         $.get("/index_msg", function (data, status) {		
-            for (var i = 0; i < 12; i++) {
-                document.getElementById("name" + (i + 1)).innerHTML = data[i]["id"];
-                document.getElementById("cont" + (i + 1)).innerHTML = data[i]["name"];
+            for (var i = 0; i < 10; i++) {
+                document.getElementById("name" + (i + 1)).innerHTML = "No. " + data[i]["id"];
+                document.getElementById("cont" + (i + 1)).innerHTML = "name: "+data[i]["name"] 
+                + "<br>change: " + data[i]["hige"] + "%";
 				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + data[i]["name"];
             }
         })
@@ -248,7 +255,7 @@
 	
 	function showDiffType(values){
 		$.get("/" + values, function (data, status) {
-            for (var i = 0; i < 12; i++) {
+            for (var i = 0; i < 10; i++) {
                 document.getElementById("name" + (i + 1)).innerHTML = data[i]["id"];
                 document.getElementById("cont" + (i + 1)).innerHTML = data[i]["name"];
 				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + data[i]["name"];
