@@ -126,17 +126,15 @@ public class NasdaqController {
         return result;
     }
 
-    @RequestMapping("/stock/{name}/{tpye}") // 六个月的K线数据
-    public List<Security> getMoreInfo(@PathVariable String name,
+    @RequestMapping("/stock/{name}/{type}") // 六个月的K线数据
+    public List<? extends Security> getMoreInfo(@PathVariable String name,
                                       @PathVariable String type) {
         this.name = name;
         switch (type){
             case "NASDAQ":
-                return N_repostory.getNasdaqByDateAndName(20130101, 20130601, name).stream()
-                    .collect(Collectors.toList());
+                return N_repostory.getNasdaqByDateAndName(20130101, 20130601, name);
             case "Forex":
-                return F_repository.getNasdaqByDateAndName(20130101, 20130601, name).stream()
-                        .collect(Collectors.toList());
+                return F_repository.getNasdaqByDateAndName(20130101, 20130601, name);
             case "LIFFE":
                 return L_repository.getNasdaqByDateAndName(20130101, 20130601, name).stream()
 //                .map(item -> {
@@ -145,7 +143,7 @@ public class NasdaqController {
 //                })
                   .collect(Collectors.toList());
             default:
-                  return F_repository.getNasdaqByDateAndName(20130101, 20130601, name).stream()
+                  return N_repostory.getNasdaqByDateAndName(20130101, 20130601, name).stream()
                     .collect(Collectors.toList());
         }
 
