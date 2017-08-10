@@ -68,16 +68,14 @@
 						<div class="jyTable">
 							<div class="clearfix">
 								<ul class="title title1 left nav nav-tabs">
-									<li class='cur' style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab">Stock</a></li>
-									<li class='cur2' style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab">Nasdaq</a></li>
-									<li class='cur3' style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab">Liffe</a></li>
-									<li class='cur4' style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab">Forex</a></li>
+									<li style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab" onclick="topTenOf('nasdaqTP')">NASDAQ</a></li>
+									<li style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab" onclick="topTenOf('nasdaqTP')">day</a></li>
+									<li style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab" onclick="topTenOfWEK('nasdaqTP')">week</a></li>
+									<li style="font-size: 20px;font-weight:bold;"><a href="#zong" data-toggle="tab" onclick="topTenOfMON('nasdaqTP')">month</a></li>
 								</ul>
 								<ul class="titleexp right" style="padding-top: 7px;">
-									<li>Stock Volume：</li>
-									<li>Nasdaq Volume：</li>
-									<li>Liffe Volume：</li>
-									<li>Forex Volume：</li>
+									<li id="showDate"></li>	
+								
 								</ul>
 							</div>
 							<div  id = "zong" class='zong tab-pane fade in active' >
@@ -86,12 +84,11 @@
 										<ul>
 											<li class="tabth clearfix">
 												<span style="width: 13%;font-weight:bold;">Ranking</span>
-												<span style="width: 17%;font-weight:bold;">Company Name</span>
-												<span style="width: 24%;font-weight:bold;">Date</span>
-												<span style="width: 18%;font-weight:bold;">Low Price</span>
-												<span style="width: 18%;font-weight:bold;">High Price</span>
-												<span style="width: 18%;font-weight:bold;">Increase</span>
-												
+												<span style="width: 19%;font-weight:bold;">Company Name</span>
+												<span style="width: 17%;font-weight:bold;">Date</span>
+												<span style="width: 17%;font-weight:bold;">Low Price</span>
+												<span style="width: 17%;font-weight:bold;">High Price</span>
+												<span style="width: 17%;font-weight:bold;">Increase</span>												
 											</li>
 										</ul>
 										<div id="s1">
@@ -113,55 +110,140 @@
 		
 		<script type="text/javascript">
 			window.onload = function (){
+				var today = new Date();
+				var intYears,intMonths,intDays;
+				intYears = today.getFullYear(); //得到年份,getFullYear()比getYear()更普适
+				intMonths = today.getMonth() + 1; //得到月份，要加1
+				intDays = today.getDate(); //得到日期
+				var dateString = intYears + '-' + intMonths + '-' + intDays;
+				console.log(dateString);
+				document.getElementById("showDate").innerHTML = dateString;
 				//$.get("/topten/", function (data, status) {
 					data = [{
-						"Symbol":7989,
 						"Name":899,
-						"Type":4356,
-						"Update": 6987,
-						"APrice":849389,
-						"CPrice":849389,
-						"chart":849389
-					}];
-					
-					var ul = document.getElementById("tabUI");
-					for(var i = 0; i < 10; i++){
-						var li = document.createElement('li');
-						var span1 = document.createElement('span');
-						var span2 = document.createElement('span');
-						var span3 = document.createElement('span');
-						var span4 = document.createElement('span');
-						var span5 = document.createElement('span');
-						var span6 = document.createElement('span');
-						var a = document.createElement('a');
-						
-						li.className = "tabtr clearfix";
-						li.appendChild(span1);
-						span1.style = "width: 13%; color: #F7001E";
-						span1.innerHTML = data[i]["Symbol"];						
-						li.appendChild(span2);
-						span2.style = "width: 12%;color: #AB9C08";
-						span2.innerHTML = data[i]["Name"];
-						li.appendChild(span3);
-						span3.style = "width: 10%;color: #067D14";
-						span3.innerHTML = data[i]["Type"];
-						li.appendChild(span4);
-						span4.style = "width: 15%";
-						span4.innerHTML = data[i]["Update"];
-						li.appendChild(span5);
-						span5.style = "width: 17%";
-						span5.innerHTML = data[i]["APrice"];
-						li.appendChild(span6);
-						span6.style = "width: 17%";
-						span6.innerHTML = data[i]["CPrice"];
-						li.appendChild(a);
-						a.style = "width: 12%;color: #F7001E";
-						a.innerHTML = "show chart";
-						a.href = "./index";
-						ul.appendChild(li);
+						"low":4356,
+						"high": 6987,
+						"increase":849389,
+						"date":'2013/3/4',
+						"volume":53435
+					},
+					{
+						"Name":899,
+						"low":4356,
+						"high": 6987,
+						"increase":849389,
+						"date":'2013/3/4'
 					}
-					document.getElementById('test').appendChild(ul);				
+					];
+					
+					createUL(data);				
 				//};				
+			}
+			
+			//创建表格
+			function createUL (data){
+				
+				var ul = document.getElementById("tabUI");
+				for(var i = 0; i < 10; i++){
+					var li = document.createElement('li');
+					var span1 = document.createElement('span');
+					var span2 = document.createElement('span');
+					var span3 = document.createElement('span');
+					var span4 = document.createElement('span');
+					var span5 = document.createElement('span');
+					var span6 = document.createElement('span');
+					
+					li.className = "tabtr clearfix";
+					li.appendChild(span1);
+					span1.style = "width: 13%;font-weight:bold;";
+					span1.innerHTML = i+1;						
+					li.appendChild(span2);
+					span2.style = "width: 19%;font-weight:bold;";
+					span2.innerHTML = data[i]["Name"];
+					li.appendChild(span3);
+					span3.style = "width: 17%;font-weight:bold;";
+					span3.innerHTML = data[i]["date"];
+					li.appendChild(span4);
+					span4.style = "width: 17%;font-weight:bold;";
+					span4.innerHTML = data[i]["low"];
+					li.appendChild(span5);
+					span5.style = "width: 17%;font-weight:bold;";
+					span5.innerHTML = data[i]["high"];
+					li.appendChild(span6);
+					span6.style = "width: 17%;font-weight:bold;";
+					span6.innerHTML = data[i]["increase"];						
+					ul.appendChild(li);
+				}
+				document.getElementById('test').appendChild(ul);
+			}
+			
+			//检索不同类型的topten
+			function topTenOf(type){
+				//$.get("/topten" + type, function (data, status) {
+					data = [{
+						"Name":123,
+						"low":4356,
+						"high": 6987,
+						"increase":849389,
+						"date":'2013/3/4'
+					},
+					{
+						"Name":456,
+						"low":4356,
+						"high": 6987,
+						"increase":849389,
+						"date":'2013/3/4'
+					}
+					];
+					$('#tabUI li').remove();
+					createUL(data);				
+				//};
+			}
+			
+			//显示一周的topten
+			function topTenOfWEK(type){
+				//$.get("/weekTP/" + type, function (data, status) {
+					data = [{
+						"Name":123,
+						"low":4356,
+						"high": 6987,
+						"increase":849389,
+						"date":'2013/3/4'
+					},
+					{
+						"Name":456,
+						"low":4356,
+						"high": 6987,
+						"increase":849389,
+						"date":'2013/3/4'
+					}
+					];
+					$('#tabUI li').remove();
+					createUL(data);				
+				//};
+			}
+			
+			//显示一月的topten
+			function topTenOfMON(type){
+				//$.get("/monthTP/" + type, function (data, status) {
+					data = [{
+						"Name":123,
+						"low":4356,
+						"high": 6987,
+						"increase":849389,
+						"date":'2013/3/4'
+					},
+					{
+						"Name":456,
+						"low":4356,
+						"high": 6987,
+						"increase":849389,
+						"date":'2013/3/4'
+					}
+					];
+					$('#tabUI li').remove();
+					createUL(data);				
+				//};
 			}
 			function search() {
 				var searchValue = document.getElementById("search").value;
