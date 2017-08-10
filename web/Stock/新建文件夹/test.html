@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>Bootstrap 实例 - 下拉菜单（Dropdowns）</title>
+
+</head>
+<body>
+	<h2 id = "h0"></h2>
+	<div>
+		<a id = "detail"><p id = "p1"></p></a>
+	</div>
+	
+	
+	<script type = "text/javascript">
+		window.onload = function(){
+			var data = [
+				{
+				"id": 9029403,
+				"name": "nafdfdfjkl"
+				}
+			];
+			for(var i = 0; i < 12; i++){				
+				
+					console.log("h" + (i+1));
+					document.getElementById("h" + i).innerHTML = data[i]["id"];
+					document.getElementById("p1").innerHTML = data[i]["name"];
+					document.getElementById("detail").href = './generic.html?name=' + data[i]["name"];
+				
+			}
+		};
+	</script>
+</body>
+</html>
