@@ -1,0 +1,66 @@
+@import 'libs/_vars';
+@import 'libs/_functions';
+@import 'libs/_mixins';
+@import 'libs/_skel';
+@import 'font-awesome.min.css';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900');
+
+/*
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+	@include skel-breakpoints((
+		xlarge: '(max-width: 1680px)',
+		large: '(max-width: 1280px)',
+		medium: '(max-width: 980px)',
+		small: '(max-width: 736px)',
+		xsmall: '(max-width: 480px)',
+		xxsmall: '(max-width: 360px)'
+	));
+
+	@include skel-layout((
+		reset: 'full',
+		boxModel: 'border',
+		grid: (
+			gutters: 2em
+		),
+		breakpoints: (
+			medium: (
+				grid: (
+					gutters: 1.5em
+				)
+			),
+			small: (
+				grid: (
+					gutters: 1em
+				)
+			)
+		)
+	));
+
+// Base.
+
+	@import 'base/_page';
+	@import 'base/_typography';
+
+// Component.
+
+	@import 'components/_section';
+	@import 'components/_icon';
+	@import 'components/_list';
+	@import 'components/_form';
+	@import 'components/_box';
+	@import 'components/_image';
+	@import 'components/_table';
+	@import 'components/_button';
+	@import 'components/_tiles';
+
+// Layout.
+
+	@import 'layout/_header';
+	@import 'layout/_menu';
+	@import 'layout/_main';
+	@import 'layout/_footer';
+	@import 'layout/_wrapper';

@@ -21,7 +21,7 @@ dist/
 nbdist/
 .nb-gradle/
 
-./idea
+./idea/
 .mvn/
 target/
 data_ananlytics.iml

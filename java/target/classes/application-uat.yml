@@ -3,6 +3,16 @@
 server:
   port: 9090
 
+spring:
+  devtools:
+    restart:
+      enabled: true
+      exclude: resources/**
+  thymeleaf:
+    cache: false
+
+
+
 #spring:
 #  datasource:
 #    driver-class-name: com.mysql.jdbc.Driver

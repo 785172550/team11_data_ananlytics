@@ -1,16 +1,22 @@
 # uat 环境配置
 
 server:
-  port: 9090
+  port: 9091
 
-#spring:
-#  datasource:
-#    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://127.0.0.1:3306/test
-#    username: wh
-#    password: wh321
-#
-#  jpa:
-#    hibernate:            #每次都会创建表
-#      ddl-auto: update
-#    show-sql: true
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-exclude: /resources/**,templates/**
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/alltypes
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

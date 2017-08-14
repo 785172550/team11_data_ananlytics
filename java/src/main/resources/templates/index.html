@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Phantom by HTML5 UP</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lte IE 8]>
+    <script src="./assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="./assets/css/main.css"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="./assets/css/ie9.css"/><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="./assets/css/ie8.css"/><![endif]-->
+
+</head>
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+	<header id="header">
+		<div class="inner">
+			<!-- Search -->
+				<div class="">
+					<div class="input-group" style="float:right;width:200px;height: 30px;">
+						<input style = "height: 30px;" id="search" type="text" class="form-control input-lg" onkeydown="JavaScript:if (event.keyCode==13) search();"><span style="background:lightgray;font-weight: bold;" class="input-group-addon btn btn-primary" onclick="search()">Search</span>
+					</div>
+				</div>		
+			<!-- Logo -->
+				<a href="./index.html" class="logo">
+					<span class="symbol"><img src="./images/logo.svg" alt="" /></span><span class="title">Team 11</span>
+				</a>
+			<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>																		
+		</div>
+	</header>
+
+    <!-- Menu -->
+    <nav id="menu">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./topTen.html?name=topten">The Top10</a></li>
+            <li><a href="./corr.html">corr</a></li>
+        </ul>
+    </nav>
+  
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <header>
+                <h1>World Ultimate Data analytics</h1>
+                <h1>Top10 today</h1>
+            </header>
+            <div class="dropdown">
+                <button style="border:none" type="button" class="btn btn-sm dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">Quant Quote Market
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">                   
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#stockInfo" onclick="showDiffType('Forex')">FOREX</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#stockInfo" onclick="showDiffType('NYSE')">NYSE</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#stockInfo" onclick="showDiffType('LIFFE')">LIFFE</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#stockInfo" onclick="showDiffType('NASDAQ')">NASDAQ</a>
+                    </li>
+                </ul>
+            </div>
+            <br><br>
+            <h1>Increase Top5</h1>
+            <section id="stockInfo" class="tiles">
+                <article id="stock1" class="style1">
+									<span class="image">
+										<img src="./images/pic01.jpg" alt=""/>
+									</span>
+                    <a id="detail1" >
+                        <h2 id="name1"></h2>
+                        <div id="cont1" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style2">
+									<span class="image">
+										<img src="./images/pic02.jpg" alt=""/>
+									</span>
+                    <a id="detail2">
+                        <h2 id="name2"></h2>
+                        <div id="cont2" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style3">
+									<span class="image">
+										<img src="./images/pic03.jpg" alt=""/>
+									</span>
+                    <a id="detail3">
+                        <h2 id="name3"></h2>
+                        <div id="cont3" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style4">
+									<span class="image">
+										<img src="./images/pic04.jpg" alt=""/>
+									</span>
+                    <a id="detail4">
+                        <h2 id="name4"></h2>
+                        <div id="cont4" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style5">
+									<span class="image">
+										<img src="./images/pic05.jpg" alt=""/>
+									</span>
+                    <a id="detail5">
+                        <h2 id="name5"></h2>
+                        <div id="cont5" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article>
+                </section>
+
+<!--             <header> -->
+                <br><br>
+                <h1>Decrease Top5</h1>
+    <!--         </header>  -->
+                <section id="stockInfo" class="tiles">
+                <article class="style6">
+									<span class="image">
+										<img src="./images/pic06.jpg" alt=""/>
+									</span>
+                    <a id="detail6">
+                        <h2 id="name6"></h2>
+                        <div id="cont6" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style2">
+									<span class="image">
+										<img src="./images/pic07.jpg" alt=""/>
+									</span>
+                    <a id="detail7">
+                        <h2 id="name7"></h2>
+                        <div id="cont7" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style3">
+									<span class="image">
+										<img src="./images/pic08.jpg" alt=""/>
+									</span>
+                    <a id="detail8">
+                        <h2 id="name8"></h2>
+                        <div id="cont8" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style1">
+									<span class="image">
+										<img src="./images/pic09.jpg" alt=""/>
+									</span>
+                    <a id="detail9">
+                        <h2 id="name9"></h2>
+                        <div id="cont9" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style5">
+									<span class="image">
+										<img src="./images/pic10.jpg" alt=""/>
+									</span>
+                    <a id="detail10">
+                        <h2 id="name10"></h2>
+                        <div id="cont10" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article>
+<!--                 <article class="style6">
+									<span class="image">
+										<img src="./images/pic11.jpg" alt=""/>
+									</span>
+                    <a id="detail11">
+                        <h2 id="name11"></h2>
+                        <div id="cont11" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style4">
+									<span class="image">
+										<img src="./images/pic12.jpg" alt=""/>
+									</span>
+                    <a id="detail12">
+                        <h2 id="name12"></h2>
+                        <div id="cont12" class="content">
+                            <p></p>
+                        </div>
+                    </a>
+                </article> -->
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/skel.min.js"></script>
+<script src="./assets/js/util.js"></script>
+<script type="text/javascript" src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<!--[if lte IE 8]>
+<script src="./assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="./assets/js/main.js"></script>
+
+<script type="text/javascript">
+    function search() {
+        var searchValue = document.getElementById("search").value;
+//		console.log(searchValue);
+		window.location.href = "./generic.html?stock=" + searchValue;
+    }
+	
+    window.onload = function () {
+        $.get("/index_msg", function (data, status) {		
+            for (var i = 0; i < 10; i++) {
+                document.getElementById("name" + (i + 1)).innerHTML = "No. " + data[i]["id"];
+                document.getElementById("cont" + (i + 1)).innerHTML = "name: "+data[i]["name"] 
+                + "<br>change: " + data[i]["hige"] + "%";
+				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + data[i]["name"] + "/NASDAQ";
+            }
+        })
+
+    };
+	
+	function showDiffType(values){
+		$.get("/" + values, function (data, status) {
+            for (var i = 0; i < 10; i++) {
+                console.log(data)
+                document.getElementById("name" + (i + 1)).innerHTML = "No. " + data[i]["id"];
+                document.getElementById("cont" + (i + 1)).innerHTML = "name: " + data[i]["name"]
+                + "<br>change: " + data[i]["hige"] + "%";
+				document.getElementById("detail" + (i + 1)).href = './generic.html?stock=' + data[i]["name"] + "/" + values;
+            }
+        })
+	}
+
+</script>
+
+</body>
+</html>
